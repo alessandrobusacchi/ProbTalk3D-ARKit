@@ -77,6 +77,9 @@ def sample(newcfg: DictConfig):
     pl.seed_everything(cfg.seed)
 
     logger.info("Loading data module")
+    # print("My Print: ")
+    # cfg.data['prosody_path'] = '${path.datasets}/mead/prosody_static'
+    # print("cfg: ", cfg.data)
     data_module = instantiate(cfg.data)
     logger.info(f"Data module '{cfg.data.data_name}' loaded")
 

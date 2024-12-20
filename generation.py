@@ -155,9 +155,18 @@ def sample(newcfg: DictConfig) -> None:
     import random
 
     # load audio
+    try:
+        import disvoice
+    except ImportError:
+        print("import error for disvoice")
+    from prosody import Prosody
+    prosody_obj = Prosody()
+
+
     name = []
     audio_data = []
     key_id = []
+    prosody_data = []
     for idx, key in enumerate(keys):
         name.append(key)
 
@@ -165,6 +174,15 @@ def sample(newcfg: DictConfig) -> None:
         speech_array, _ = librosa.load(file, sr=16000)
         speech_array = audio_normalize(speech_array)
         audio_data.append(speech_array)
+
+        # prosody features
+        prosody_features_static = prosody_obj.extract_features_file(file, static=True, plots=False, fmt="npy")
+        if np.isnan(prosody_features_static).any():
+            # print(p_dir, " contains NAN value")
+            prosody_features_static = np.nan_to_num(prosody_features_static)
+        p_torch = torch.from_numpy(prosody_features_static).unsqueeze(0)
+        p_torch = p_torch.to(torch.float32)
+        prosody_data.append(p_torch)
 
         # setting keyid for style control
         if cfg.id is not None:
@@ -221,7 +239,8 @@ def sample(newcfg: DictConfig) -> None:
                 progress.update(task, description=f"Sampling {name[i]}...")
                 for index in range(cfg.number_of_samples):
                     batch = {"audio": [audio_data[i]],
-                             "keyid": [key_id[i]]}
+                             "keyid": [key_id[i]],
+                             "prosody": [prosody_data[i]]}
                     print("Audio:", name[i], "Style:", batch["keyid"], "Sample number:", index+1)
 
                     exp_jaw_pred = model(batch, sample=cfg.sample)              # [1, T, 53]

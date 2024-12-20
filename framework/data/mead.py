@@ -5,7 +5,6 @@ import torch
 from torch.utils.data import Dataset
 from pathlib import Path
 from rich.progress import track
-
 from .base import BaseDataModule
 from .utils import get_split_keyids
 from framework.data.tools.collate import audio_normalize
@@ -37,6 +36,7 @@ class MEAD(Dataset):
                  motion_path: str,
                  audio_path: str,
                  split_path: str,
+                 prosody_path: str,
                  load_audio: str,
                  split: str,
                  tiny: bool,
@@ -63,6 +63,7 @@ class MEAD(Dataset):
         motion_data_all = {}
         shape_data_all = {}
         audio_data_all = {}
+        prosody_data_all = {}
 
         # Initializing MinMaxScalars for exp and jaw
         exp_scaler = MinMaxScaler()
@@ -82,9 +83,10 @@ class MEAD(Dataset):
                 if len(motion_data_all) >= max_data:
                     break
                 # load 3DMEAD dataset
-                key, motion_data, shape_data, audio_data = load_data(keyid=id,
+                key, motion_data, shape_data, audio_data, prosody_data = load_data(keyid=id,
                                                                      motion_path=Path(motion_path),
                                                                      audio_path=Path(audio_path),
+                                                                     prosody_path=Path(prosody_path),
                                                                      max_data=max_data,
                                                                      load_audio=load_audio,
                                                                      exp_scaler=exp_scaler,
@@ -93,6 +95,7 @@ class MEAD(Dataset):
                 motion_data_all.update(dict(zip(key, motion_data)))
                 shape_data_all.update(dict(zip(key, shape_data)))
                 audio_data_all.update(dict(zip(key, audio_data)))
+                prosody_data_all.update(dict(zip(key, prosody_data)))
         else:
             for i, id in enumerator:
                 if len(motion_data_all) >= max_data:
@@ -101,6 +104,7 @@ class MEAD(Dataset):
                 key, motion_data, shape_data = load_data(keyid=id,
                                                          motion_path=Path(motion_path),
                                                          audio_path=Path(audio_path),
+                                                         prosody_path=Path(prosody_path),
                                                          max_data=max_data,
                                                          load_audio=load_audio,
                                                          exp_scaler=exp_scaler,
@@ -113,6 +117,7 @@ class MEAD(Dataset):
         self.shape_data = shape_data_all
         if load_audio:
             self.audio_data = audio_data_all
+            self.prosody_data = prosody_data_all
         self.keyids = list(motion_data_all.keys())  # file name
         self.nfeats = self[0]["motion"].shape[2]    # number of feature
         print(f"The number of loaded data pair is: {len(self.motion_data)}")
@@ -120,13 +125,14 @@ class MEAD(Dataset):
 
     def load_keyid(self, keyid):
         if self.load_audio:
-            element = {"motion": self.motion_data[keyid], "shape": self.shape_data[keyid], "audio": self.audio_data[keyid],
+            element = {"motion": self.motion_data[keyid], "shape": self.shape_data[keyid], "audio": self.audio_data[keyid], "prosody": self.prosody_data[keyid],
                        "keyid": keyid}
         else:
             element = {"motion": self.motion_data[keyid], "shape": self.shape_data[keyid], "keyid": keyid}
         return element
 
     def __getitem__(self, index):
+        # print("index: ", index)
         keyid = self.keyids[index]
         element = self.load_keyid(keyid)
         return element
@@ -138,12 +144,18 @@ class MEAD(Dataset):
         return f"{self.data_name} dataset: ({len(self)}, _, ..)"
 
 
-def load_data(keyid, motion_path, audio_path, max_data, load_audio, exp_scaler, jaw_scaler, split):
+def load_data(keyid, motion_path, audio_path, prosody_path, max_data, load_audio, exp_scaler, jaw_scaler, split):
     try:
         motion_dir = list(motion_path.glob(f"{keyid}*.npy"))
         motion_key = [directory.stem for directory in motion_dir]
         audio_dir = list(audio_path.glob(f"{keyid}*.wav"))
         audio_key = [directory.stem for directory in audio_dir]
+        prosody_dir = list(prosody_path.glob(f"{keyid}*.npy"))
+        prosody_key = [directory.stem for directory in prosody_dir]
+        # print("My print ")
+        # print("prosody path: ", prosody_path)
+        # print("prosody dir: ", prosody_dir)
+        # print("key: ", prosody_key)
     except FileNotFoundError:
         return None
 
@@ -151,6 +163,7 @@ def load_data(keyid, motion_path, audio_path, max_data, load_audio, exp_scaler, 
     motion_data = []
     shape_data = []
     audio_data = []
+    prosody_data = []
     if load_audio:  # second stage
         for key in motion_key:
             if len(keys) >= max_data:
@@ -158,6 +171,7 @@ def load_data(keyid, motion_path, audio_path, max_data, load_audio, exp_scaler, 
                 motion_data = motion_data[:max_data]
                 shape_data = shape_data[:max_data]
                 audio_data = audio_data[:max_data]
+                prosody_data = prosody_data[:max_data]
                 break
 
             if key in audio_key:
@@ -209,9 +223,25 @@ def load_data(keyid, motion_path, audio_path, max_data, load_audio, exp_scaler, 
                     a_index = audio_key.index(key)
                     a_dir = audio_dir[a_index]
 
+                    # print("My print: ")
+                    # print("audio_key: ", audio_key)
+                    # print("key: ", key)
+                    # print("prosody_key: ", prosody_key)
+
                     speech_array, _ = librosa.load(a_dir, sr=16000)
                     speech_array = audio_normalize(speech_array)
                     audio_data.append(speech_array)
+
+                    p_index = prosody_key.index(key)
+                    p_dir = prosody_dir[p_index]
+                    p_npy = np.load(p_dir)
+                    if np.isnan(p_npy).any():
+                        # print(p_dir, " contains NAN value")
+                        p_npy = np.nan_to_num(p_npy)
+                    p_torch = torch.from_numpy(p_npy).unsqueeze(0)
+                    p_torch = p_torch.to(torch.float32)
+                    # prosody_data.append(p_npy)
+                    prosody_data.append(p_torch)
                 else:
                     # print(f"Pass {key}")
                     pass
@@ -219,7 +249,7 @@ def load_data(keyid, motion_path, audio_path, max_data, load_audio, exp_scaler, 
                 print(f"No matching audio file for {key}")
                 pass
 
-        return keys, motion_data, shape_data, audio_data
+        return keys, motion_data, shape_data, audio_data, prosody_data
     else:     # first stage
         for dir in motion_dir:
             if len(keys) >= max_data:

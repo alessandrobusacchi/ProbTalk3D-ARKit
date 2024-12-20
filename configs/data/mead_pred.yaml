@@ -1,10 +1,21 @@
 data_name: MEAD
 _target_: framework.data.mead.MeadDataModule
 
-# Paths
+# Paths pre
+#motion_path: ${path.datasets}/mead/param_pre
+#audio_path: ${path.datasets}/mead/wav_pre
+#split_path: ${path.datasets}/mead-splits-pred_pre
+#prosody_path: ${path.datasets}/mead/prosody_static_pre
+
 motion_path: ${path.datasets}/mead/param
 audio_path: ${path.datasets}/mead/wav
 split_path: ${path.datasets}/mead-splits-pred
+prosody_path: ${path.datasets}/mead/prosody_static
+
+#motion_path: ../data/3DMEAD/vertices_npy_sichun
+#audio_path: ../data/3DMEAD//wav
+#split_path: ${path.datasets}/mead-splits-pred
+#prosody_path: ../data/3DMEAD/prosody_static
 
 load_audio: true
 

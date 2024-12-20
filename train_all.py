@@ -31,6 +31,9 @@ def train(cfg: DictConfig) -> None:
     pl.seed_everything(cfg.seed)
 
     logger.info("Loading data module")
+    # print("My Prints: ")
+    # print(cfg)
+    # print(cfg.data)
     data_module = instantiate(cfg.data)
     logger.info(f"Data module '{cfg.data.data_name}' loaded")
 
@@ -51,7 +54,7 @@ def train(cfg: DictConfig) -> None:
         pl.callbacks.RichProgressBar(),
         instantiate(cfg.callback.progress, metric_monitor=metric_monitor),
         instantiate(cfg.callback.best_epoch_ckpt),  # Best epoch checkpoint (on validation loss)
-        instantiate(cfg.callback.last_ckpt),        # Latest checkpoint and last.ckpt
+        # instantiate(cfg.callback.last_ckpt),        # Latest checkpoint and last.ckpt
         instantiate(cfg.callback.early_stopping),
     ]
     logger.info("Callbacks initialized")
