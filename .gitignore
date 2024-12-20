@@ -3,6 +3,7 @@ model_weights/
 **/__pycache__/
 results/
 outputs/
+deps/render/
 
 
 # ignore the following extensions
@@ -10,4 +11,4 @@ outputs/
 *.pth
 *.mp4
 *.zip
-
+*.wav
