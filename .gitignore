@@ -1,4 +1,13 @@
 .idea/
 model_weights/
 **/__pycache__/
+results/
+outputs/
+
+
+# ignore the following extensions
+*.npy
+*.pth
+*.mp4
+*.zip
 
