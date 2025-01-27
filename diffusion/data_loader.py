@@ -27,6 +27,7 @@ class Dataset(data.Dataset):
         audio = self.data[index]["audio"]
         vertice = self.data[index]["vertice"]
         template = self.data[index]["template"]
+        prosody_feats = self.data[index]["prosody"]
         if self.data_type == "train" or self.data_type == "val" or self.data_type == "test":
             subject = file_name.split("_")[0]
             id_one_hot = self.one_hot_labels[self.subjects_dict["train"].index(subject)]
@@ -40,7 +41,7 @@ class Dataset(data.Dataset):
             one_hot = self.one_hot_labels
 
         return torch.FloatTensor(audio), vertice, torch.FloatTensor(template), torch.FloatTensor(
-            one_hot), file_name
+            one_hot), file_name, prosody_feats
 
     def __len__(self):
         return self.len
@@ -56,6 +57,7 @@ def read_data(args):
 
     audio_path = os.path.join(args.data_path, args.dataset, args.wav_path)
     vertices_path = os.path.join(args.data_path, args.dataset, args.vertices_path)
+    prosody_path = os.path.join(args.data_path, args.dataset, args.prosody_path)
 
     processor = Wav2Vec2Processor.from_pretrained(
         "facebook/hubert-xlarge-ls960-ft")  # HuBERT uses the processor of Wav2Vec 2.0
@@ -69,6 +71,7 @@ def read_data(args):
         for f in tqdm(fs, disable=True):
             if f.endswith("npy"):
                 m_path = os.path.join(r, f)
+                p_path = os.path.join(prosody_path, f)
                 key = f.replace("npy", "wav")
 
                 # get sample info from the name and add it to the dict for the splits
@@ -83,6 +86,15 @@ def read_data(args):
                 temp = templates.get(subject_id, np.zeros(args.vertice_dim))    # [5023, 3]
                 data[key]["name"] = f
                 data[key]["template"] = temp.reshape((-1))                      # [15069]
+
+                # load the prosody features here
+                p_npy = np.load(p_path)
+                if np.isnan(p_npy).any():
+                    # print(p_dir, " contains NAN value")
+                    p_npy = np.nan_to_num(p_npy)
+                p_torch = torch.from_numpy(p_npy).unsqueeze(0)
+                p_torch = p_torch.to(torch.float32)
+                data[key]['prosody'] = p_torch
 
                 wav_path = os.path.join(audio_path, f.replace("npy", "wav"))
                 if not os.path.exists(wav_path):

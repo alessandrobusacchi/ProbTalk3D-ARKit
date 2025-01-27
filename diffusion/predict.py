@@ -84,6 +84,22 @@ def test_model(args):
     audio_feature = np.reshape(audio_feature, (-1, audio_feature.shape[0]))
     audio_feature = torch.FloatTensor(audio_feature).to(device=args.device)
 
+    # get prosody feats from audio
+    try:
+        import disvoice
+    except ImportError:
+        print("import error for disvoice")
+    from prosody import Prosody
+    prosody_obj = Prosody()
+
+    prosody_features_static = prosody_obj.extract_features_file(os.path.join(wav_path), static=True, plots=False, fmt="npy")
+    if np.isnan(prosody_features_static).any():
+        # print(p_dir, " contains NAN value")
+        prosody_features_static = np.nan_to_num(prosody_features_static)
+    p_torch = torch.from_numpy(prosody_features_static).unsqueeze(0)
+    p_torch = p_torch.to(torch.float32)
+
+
     diffusion = create_gaussian_diffusion(args)
     num_frames = int(audio_feature.shape[0] / sampling_rate * args.output_fps)
     num_frames -= 1
@@ -96,6 +112,7 @@ def test_model(args):
             "cond_embed": audio_feature,
             "one_hot": one_hot,
             "template": template,
+            "prosody_feats": p_torch,
         },
         skip_timesteps=args.skip_steps,     # skip 900 timesteps
         init_image=None,

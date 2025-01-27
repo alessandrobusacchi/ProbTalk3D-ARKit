@@ -55,7 +55,8 @@ class VaePredict(BaseModel):
 
         self.feature_predictor = instantiate(self.hparams.feature_predictor,
                                              audio_dim=audio_encoded_dim * 2,   # 768*2
-                                             one_hot_dim=sum(one_hot_dim[:]))   # 32+8+3
+                                             one_hot_dim=sum(one_hot_dim[:]),   # 32+8+3
+                                             prosody_dim=103)
         logger.info(f"3. 'Audio Encoder' loaded")
 
         self.optimizer = instantiate(self.hparams.optim, params=self.parameters())
@@ -82,11 +83,14 @@ class VaePredict(BaseModel):
         # audio feature extraction
         audio_feature = self.feature_extractor(batch['audio'], False)   # list of [B, Ts, 768]
         resample_audio_feature = []
+        prosody_feature = []
+
         for idx in range(len(audio_feature)):
             if audio_feature[idx].shape[1] % 2 != 0:
                 audio_feature_one = audio_feature[idx][:, :audio_feature[idx].shape[1] - 1, :]
             else:
                 audio_feature_one = audio_feature[idx]
+            prosody_feature.append(batch['prosody'][idx])
 
             # for evaluation, make sure the pred motion length equals gt (this may not be necessary)
             if not generation:
@@ -102,7 +106,9 @@ class VaePredict(BaseModel):
 
         # only works for batch_size=1
         batch['audio'] = torch.cat(resample_audio_feature, dim=0)
-        prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device))
+        batch['prosody'] = torch.cat(prosody_feature, dim=0)
+        # prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device))    # original
+        prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device), batch['prosody'].to(self.device))  # [B, T, 256], ne with prosody
         motion_latent_pred = self.get_latent_no_encoder(prediction)
         motion_out = self.motion_prior.motion_decoder(motion_latent_pred)
 
@@ -132,19 +138,25 @@ class VaePredict(BaseModel):
 
         resample_audio_feature = []
         resample_motion_feature = []
+        prosody_feature = []
+
         for idx in range(len(audio_feature)):
             resample_audio, resample_motion = resample_input(audio_feature[idx], batch['motion'][idx],
                                                              self.feature_extractor.hparams.output_framerate,
                                                              self.hparams.video_framerate)
             resample_audio_feature.append(resample_audio)
             resample_motion_feature.append(resample_motion)
+            prosody_feature.append(batch['prosody'][idx])
+
         assert len(resample_audio_feature) == 1, "Batch size > 1 not supported"
 
         # only works for batch_size=1
         batch['audio'] = torch.cat(resample_audio_feature, dim=0)
         batch['motion'] = torch.cat(resample_motion_feature, dim=0)
+        batch['prosody'] = torch.cat(prosody_feature, dim=0)
 
-        prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device))      # [B, T, 256]
+        # prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device))      # [B, T, 256], original
+        prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device), batch['prosody'].to(self.device))  # [B, T, 256], with prosody
         latent_pred = self.get_latent_no_encoder(prediction)
         motion_pred = self.motion_prior.motion_decoder(latent_pred)
         

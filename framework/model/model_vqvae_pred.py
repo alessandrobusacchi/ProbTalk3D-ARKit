@@ -88,6 +88,7 @@ class VqvaePredict(BaseModel):
         audio_feature = self.feature_extractor(batch['audio'], False)  # list of [B, Ts, 768]
         resample_audio_feature = []
         prosody_feature = []
+
         for idx in range(len(audio_feature)):
             if audio_feature[idx].shape[1] % 2 != 0:
                 audio_feature_one = audio_feature[idx][:, :audio_feature[idx].shape[1] - 1, :]

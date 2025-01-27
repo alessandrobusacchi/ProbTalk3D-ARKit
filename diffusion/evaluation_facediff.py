@@ -92,7 +92,7 @@ def test_diff(args, model, test_loader, epoch, diffusion, device="cuda:0"):
     ce_all = []                 # closest value
     motion_std_difference = []  # fdd: first prediction
     diversity = 0               # 2 subsets
-    for idx, (audio, vertice, template, one_hot_all, file_name) in enumerate(test_loader):
+    for idx, (audio, vertice, template, one_hot_all, file_name, prosody_feats) in enumerate(test_loader):
         vertice = vertice_path = str(vertice[0])
         vertice = np.load(vertice, allow_pickle=True)
         vertices_npy_gt = vertice.copy()                    # (T, 5023, 3)
@@ -111,7 +111,7 @@ def test_diff(args, model, test_loader, epoch, diffusion, device="cuda:0"):
         vertice = torch.from_numpy(vertice)
         vertice = vertice.reshape(1, vertice.shape[0], vertice.shape[1] * vertice.shape[2])
 
-        audio, vertice = audio.to(device=device), vertice.to(device=device)
+        audio, vertice, prosody_feats = audio.to(device=device), vertice.to(device=device), prosody_feats.to(device=device)
         template, one_hot_all = template.to(device=device), one_hot_all.to(device=device)
 
         num_frames = int(audio.shape[-1] / sr * args.output_fps)
@@ -134,6 +134,7 @@ def test_diff(args, model, test_loader, epoch, diffusion, device="cuda:0"):
                     "cond_embed": audio,
                     "one_hot": one_hot,
                     "template": template,
+                    "prosody_feats": prosody_feats,
                 },
                 skip_timesteps=args.skip_steps,     # skip 900 timesteps
                 init_image=None,
@@ -274,6 +275,7 @@ if __name__ == '__main__':
     parser.add_argument("--gru_layers", type=int, default=2, help='GRU Vertex decoder hidden size')
     parser.add_argument("--wav_path", type=str, default="wav", help='path of the audio signals')
     parser.add_argument("--vertices_path", type=str, default="vertex", help='path of the ground truth')
+    parser.add_argument("--prosody_path", type=str, default="prosody_static", help='path of the ground truth extracted prosody')
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1, help='gradient accumulation')
     parser.add_argument("--max_epoch", type=int, default=50, help='number of epochs')
     parser.add_argument("--device", type=str, default="cuda:0")

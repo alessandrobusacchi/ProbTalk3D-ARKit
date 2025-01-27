@@ -35,7 +35,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
         pbar = tqdm(enumerate(train_loader), total=len(train_loader), disable=True)
         optimizer.zero_grad()
 
-        for i, (audio, vertice, template, one_hot, file_name) in pbar:
+        for i, (audio, vertice, template, one_hot, file_name, prosody_feats) in pbar:
             iteration += 1
             vertice = str(vertice[0])
             vertice = np.load(vertice, allow_pickle=True)
@@ -45,7 +45,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
             vertice = vertice.reshape(1, vertice.shape[0], vertice.shape[1]*vertice.shape[2])
             t, weights = schedule_sampler.sample(1, torch.device(device))
 
-            audio, vertice = audio.to(device=device), vertice.to(device=device)
+            audio, vertice, prosody_feats = audio.to(device=device), vertice.to(device=device), prosody_feats.to(device=device)
             template, one_hot = template.to(device=device), one_hot.to(device=device)
             loss = diffusion.training_losses(
                 model,
@@ -55,6 +55,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
                     "cond_embed": audio,
                     "one_hot": one_hot,
                     "template": template,
+                    "prosody_feats": prosody_feats,
                 }
             )['loss']
 
@@ -76,7 +77,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
 
         valid_loss_log = []
         model.eval()
-        for audio, vertice, template, one_hot_all, file_name in dev_loader:
+        for audio, vertice, template, one_hot_all, file_name, prosody_feats in dev_loader:
             # to gpu
             vertice = str(vertice[0])
             vertice = np.load(vertice, allow_pickle=True)
@@ -86,7 +87,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
             vertice = vertice.reshape(1, vertice.shape[0], vertice.shape[1] * vertice.shape[2])
             t, weights = schedule_sampler.sample(1, torch.device(device))
 
-            audio, vertice = audio.to(device=device), vertice.to(device=device)
+            audio, vertice, prosody_feats = audio.to(device=device), vertice.to(device=device), prosody_feats.to(device=device)
             template, one_hot_all = template.to(device=device), one_hot_all.to(device=device)
             train_subject = file_name[0].split("_")[0]
             if train_subject in train_subjects_list:
@@ -99,6 +100,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
                         "cond_embed": audio,
                         "one_hot": one_hot,
                         "template": template,
+                        "prosody_feats": prosody_feats,
                     }
                 )['loss']
 
@@ -115,6 +117,7 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
                             "cond_embed": audio,
                             "one_hot": one_hot,
                             "template": template,
+                            "prosody_feats": prosody_feats,
                         }
                     )['loss']
 
@@ -125,7 +128,8 @@ def trainer_diff(args, train_loader, dev_loader, model, diffusion, optimizer, ep
 
         val_losses.append(current_loss)
         os.makedirs(save_path, exist_ok=True)
-        if e == args.max_epoch or e % 1 == 0:
+        # if e == args.max_epoch or e % 1 == 0:
+        if e == args.max_epoch:
             torch.save(model.state_dict(), os.path.join(save_path, f'{args.model}_{args.dataset}_{e}.pth'))
             plot_losses(train_losses, val_losses, os.path.join(save_path, f"losses_{args.model}_{args.dataset}"))
         print("epcoh: {}, current loss:{:.8f}".format(e + 1, current_loss))
@@ -153,6 +157,7 @@ def main():
     parser.add_argument("--gru_layers", type=int, default=2, help='GRU Vertex decoder hidden size')
     parser.add_argument("--wav_path", type=str, default="wav", help='path of the audio signals')
     parser.add_argument("--vertices_path", type=str, default="vertex", help='path of the ground truth')
+    parser.add_argument("--prosody_path", type=str, default="prosody_static", help='path of the ground truth extracted prosody')
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1, help='gradient accumulation')
     parser.add_argument("--max_epoch", type=int, default=50, help='number of epochs')
     parser.add_argument("--device", type=str, default="cuda:0")
@@ -173,6 +178,9 @@ def main():
                                                              "M022 M023 M024 M025 M026 M027 M028 M029 "
                                                              "M030 M031 W009 W011 W014 W015 W016 W018 "
                                                              "W019 W021 W023 W024 W025 W026 W028 W029")
+    # parser.add_argument("--train_subjects", type=str, default="M003")
+    # parser.add_argument("--val_subjects", type=str, default="M003")
+    # parser.add_argument("--test_subjects", type=str, default="M003")
     parser.add_argument("--input_fps", type=int, default=50,
                         help='HuBERT last hidden state produces 50 fps audio representation')
     parser.add_argument("--output_fps", type=int, default=25,

@@ -105,6 +105,9 @@ class FaceDiff(nn.Module):
         self.audio_encoder.feature_extractor._freeze_parameters()
         self.device = args.device
 
+        # prosody feats
+        self.prosody_feature_map = nn.Linear(103, cond_feature_dim)
+
         frozen_layers = [0, 1]
         for name, param in self.audio_encoder.named_parameters():
             if name.startswith("feature_projection"):
@@ -143,7 +146,7 @@ class FaceDiff(nn.Module):
         self.obj_vector = nn.Linear(len(args.train_subjects.split())+8+3, latent_dim, bias=False)
 
     def forward(
-            self, x: Tensor,  times: Tensor, cond_embed: Tensor, template, one_hot,
+            self, x: Tensor,  times: Tensor, cond_embed: Tensor, template, one_hot, prosody_feats
     ):
         batch_size, device = x.shape[0], x.device
         times = torch.FloatTensor(self.one_hot_timesteps[times])
@@ -162,6 +165,9 @@ class FaceDiff(nn.Module):
         hidden_states, x, frame_num = adjust_input_representation(hidden_states, x, self.i_fps, self.o_fps)
         cond_embed = hidden_states[:, :frame_num]
         x = x[:, :frame_num]
+
+        prosody_feats = self.prosody_feature_map(prosody_feats) # 103 -> 1536
+        cond_embed = cond_embed * prosody_feats
 
         cond_tokens = self.cond_projection(cond_embed)
         cond_tokens = cond_tokens * obj_embedding
