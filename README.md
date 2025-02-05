@@ -2,7 +2,7 @@
 Official PyTorch implementation for the paper:
 
 > **ProbTalk3D: Non-Deterministic Emotion Controllable Speech-Driven 3D Facial Animation Synthesis Using VQ-VAE.**
-> > **Unlike the main branch, this branch contains the extended experiments carried out for the extended journal submission to C&G (Computers & Graphics journal).**
+> > **Unlike the main branch, this branch contains the extended experiments (including ProbTalk3D-X) carried out for the extended journal submission to C&G (Computers & Graphics journal).**
 >
 > <a href='https://uuembodiedsocialai.github.io/ProbTalk3D/'><img src='https://img.shields.io/badge/Project-Website-blue'></a> <a href='https://uuembodiedsocialai.github.io/ProbTalk3D/'><img src='https://img.shields.io/badge/Paper-red'></a> <a href='https://uuembodiedsocialai.github.io/ProbTalk3D/'><img src='https://img.shields.io/badge/arXiv-[]-red'></a> <a href='https://uuembodiedsocialai.github.io/ProbTalk3D/'><img src='https://img.shields.io/badge/Project-Video-Green'></a> 
 > 
@@ -41,6 +41,7 @@ Download 3DMEAD dataset following the instruction of [EMOTE](https://github.com/
 ### Data Download and Preprocess 
 - Please refer to the `README.md` file in `datasets/3DMEAD_preprocess/` folder. 
 - After processing, the resulting `*.npy` files will be located in the `datasets/mead/param` folder, and the `.wav` files should be in the `datasets/mead/wav` folder.
+- For ProbTalk3D-X, enhanced model with extracted prosody features, please see the README in `datasets/mead/` directory.
 
 - <b> Optional Operation </b>
     <details><summary>Click to expand</summary>
@@ -277,7 +278,18 @@ python render_vert.py result_folder=diffusion/results/generation audio_folder=re
 ## Citation ## 
 If you find the code useful for your work, please consider starring this repository and citing it:
 ```
-@inproceedings{}
+@inproceedings{Probtalk3D_Wu_MIG24,
+        author = {Wu, Sichun and Haque,  Kazi Injamamul and Yumak,  Zerrin},
+        title = {ProbTalk3D: Non-Deterministic Emotion Controllable Speech-Driven 3D Facial Animation Synthesis Using VQ-VAE},
+        booktitle = {The 17th ACM SIGGRAPH Conference on Motion, Interaction, and Games (MIG '24), November 21--23, 2024, Arlington, VA, USA},
+        year = {2024},
+        location = {Arlington, VA, USA},
+        numpages = {12},
+        url = {https://doi.org/10.1145/3677388.3696320},
+        doi = {10.1145/3677388.3696320},
+        publisher = {ACM},
+        address = {New York, NY, USA}
+        }
 
 ```
 
