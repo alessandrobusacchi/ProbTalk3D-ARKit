@@ -43,6 +43,19 @@ Then, navigate to the project `root` folder and execute:
 ```
 pip install -r requirements.txt
 ```
+  
+#### Known issues 
+Our model depends on pretrained HuBERT model from Hugging Face that should automatically be downloaded and cached when running the training for the first time. However, in some cases (e.g., firewalled environment), there might be problem downloading the pretrained weights. In such a case, please follow these instructions- 
+  - Install the HuggingFace CLI following the official instructions from [HERE](https://huggingface.co/docs/huggingface_hub/en/guides/cli)
+  - Then download the pretrained model using the CLI: 
+  ```
+  huggingface-cli download facebook/hubert-xlarge-ls960-ft --local-dir ./path/to/local/directory/
+  ```
+  - Then change line 30 in `framework/model/feature-extractor/hubert.py` to:
+  ```
+  self.audiomodel = HubertModel.from_pretrained("./path/to/local/directory/", local_files_only=True)
+  ```
+  
 </details>
 
 ## **Dataset**
@@ -228,12 +241,21 @@ We provide several test audios. Run the following command to generate animations
   - The default generation process sets the scale factor to 20. To control diversity, adjust `fact=X`. We recommend setting X between 1 and 40. Setting X as 1 means no scaling.
    </details>
     
-### Render
+### Render 
+#### Windows
 The generated `.npy` files contain FLAME parameters and can be rendered into videos following the below instructions. 
-- We use blender to render the predicted motion. First, download the dependencies from [HERE](https://drive.google.com/file/d/1EJ0enL27YbybzUAQ3olFGhkNpEfiaoU2/view?usp=sharing) and extract them into the `deps` folder. Please note that this command can only be executed on Windows:
+- We use blender to render the predicted motion. First, download the dependencies from [HERE](https://drive.google.com/file/d/1EJ0enL27YbybzUAQ3olFGhkNpEfiaoU2/view?usp=sharing) and extract it into the `deps` folder. Please note that this command can only be executed on Windows:
   ```
   python render_param.py result_folder=results/generation/vqvae_pred/stage_2/0.2 audio_folder=results/generation/test_audio
   ```
+  
+#### Linux
+The generated `.npy` files contain FLAME parameters and can be rendered into videos following the below instructions. 
+- We use blender to render the predicted motion. First, download the dependencies from [HERE](https://ftp.nluug.nl/pub/graphics/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz) and extract them into the `deps` folder. Then change `blender_path` in `configs/render_params.yaml` to the blender path of the extracted folder. See [THIS](https://github.com/uuembodiedsocialai/ProbTalk3D/issues/6) issue for more details. Then run the following comand:
+  ```
+  python render_param_linux.py result_folder=results/generation/vqvae_pred/stage_2/0.2 audio_folder=results/generation/test_audio
+  ```
+  
 - <b> Optional Operation </b>
   <details><summary>Click to expand</summary>
   
