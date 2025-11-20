@@ -32,6 +32,7 @@ def train(cfg: DictConfig) -> None:
 
     logger.info("Loading data module")
     data_module = instantiate(cfg.data)
+    print(data_module)
     logger.info(f"Data module '{cfg.data.data_name}' loaded")
 
     logger.info("Loading model")

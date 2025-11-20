@@ -8,7 +8,6 @@ from framework.data.tools.collate import lengths_to_mask
 
 logger = logging.getLogger(__name__)
 
-
 class HuBERT(pl.LightningModule):
     def __init__(self, modelpath_processor: str,
                  modelpath_audiomodel: str,
@@ -16,7 +15,11 @@ class HuBERT(pl.LightningModule):
                  **kwargs) -> None:
         super().__init__()
         self.save_hyperparameters(logger=False)
+        # Audio model:
+        print("Current working directory:", os.getcwd())
 
+        print("Loading HuBERT model from:", modelpath_processor)
+        print("Loading HuBERT model from:", modelpath_audiomodel)
         from transformers import Wav2Vec2Processor
         from transformers import logging
         from deps.hubert.modeling_hubert import HubertModel
@@ -24,10 +27,10 @@ class HuBERT(pl.LightningModule):
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
         # Processor: HuBERT uses the processor of Wav2Vec 2.0
-        self.processor = Wav2Vec2Processor.from_pretrained(modelpath_processor)
+        self.processor = Wav2Vec2Processor.from_pretrained(modelpath_processor, local_files_only=True)
 
         # Audio model:
-        self.audiomodel = HubertModel.from_pretrained(modelpath_audiomodel)
+        self.audiomodel = HubertModel.from_pretrained(modelpath_audiomodel, local_files_only=True)
         if finetune:     # Finetune the model
             self.audiomodel.feature_extractor._freeze_parameters()
             frozen_layers = [0, 1]
