@@ -135,14 +135,17 @@ class VqvaePredict(BaseModel):
 
         # only works for batch_size=1
         batch['audio'] = torch.cat(resample_audio_feature, dim=0)       # [1, T, 768*2]
-        batch['motion'] = torch.cat(resample_motion_feature, dim=0)     # [1, T, 53]
+        batch['motion'] = torch.cat(resample_motion_feature, dim=0).float()     # [1, T, 53]
 
         prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device))  # [B, T, 256]
+
         motion_quant_pred, _, _ = self.motion_prior.quantize(prediction)        # [B, T, 256]
         motion_pred = self.motion_prior.motion_decoder(motion_quant_pred)       # [B, T, 53]
-        
         motion_quant_ref, _ = self.motion_prior.get_quant(batch['motion'])      # [B, T, 256]
         motion_ref = batch['motion']
+
+        print(motion_ref.shape)
+        print(motion_pred.shape)
         assert motion_pred.shape == motion_ref.shape, "Dimension mismatch between prediction and reference motion."
 
         loss = self.losses[split].update(motion_quant_pred=motion_quant_pred, motion_quant_ref=motion_quant_ref,

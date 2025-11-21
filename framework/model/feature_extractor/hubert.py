@@ -16,10 +16,6 @@ class HuBERT(pl.LightningModule):
         super().__init__()
         self.save_hyperparameters(logger=False)
         # Audio model:
-        print("Current working directory:", os.getcwd())
-
-        print("Loading HuBERT model from:", modelpath_processor)
-        print("Loading HuBERT model from:", modelpath_audiomodel)
         from transformers import Wav2Vec2Processor
         from transformers import logging
         from deps.hubert.modeling_hubert import HubertModel

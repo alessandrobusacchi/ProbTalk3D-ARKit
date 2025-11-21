@@ -48,7 +48,9 @@ class VQVAE(BaseModel):
         return motion_pred
 
     def get_quant(self, x):
+        print(x)
         encoder_features = self.motion_encoder(x)
+        print(encoder_features)
         quant_z, _, info = self.quantize(encoder_features)
         indices = info[2]
         return quant_z, indices  # [B, T, 256]

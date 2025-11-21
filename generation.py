@@ -107,6 +107,7 @@ def sample(newcfg: DictConfig) -> None:
     from hydra.utils import instantiate
     logger.info("Loading model")
     last_ckpt_path = cfg.last_ckpt_path
+
     model = instantiate(cfg.model,
                         nfeats=cfg.nfeats,
                         split_path=cfg.data.split_path,
@@ -114,6 +115,7 @@ def sample(newcfg: DictConfig) -> None:
                         resumed_training=False,
                         logger_name="none",
                         _recursive_=False)
+
     logger.info(f"Model '{cfg.model.modelname}' loaded")
     # move model to cuda
     if cfg.device is None:
@@ -224,19 +226,11 @@ def sample(newcfg: DictConfig) -> None:
                              "keyid": [key_id[i]]}
                     print("Audio:", name[i], "Style:", batch["keyid"], "Sample number:", index+1)
 
-                    exp_jaw_pred = model(batch, sample=cfg.sample)              # [1, T, 53]
-                    exp_jaw_pred = detach_to_numpy(exp_jaw_pred.squeeze(0))     # (T, 53)
+                    prediction = model(batch, sample=cfg.sample)
+                    prediction = prediction.squeeze()
+                    prediction = prediction.detach().cpu().numpy()
 
-                    # denormalization pred
-                    shape_prefix = np.zeros((exp_jaw_pred.shape[0], 300))
-                    exp_suffix = np.zeros((exp_jaw_pred.shape[0], 50))
-
-                    inverse_exp_pred = scaler_exp.inverse_transform(exp_jaw_pred[:, :50])
-                    inverse_jaw_pred = scaler_jaw.inverse_transform(exp_jaw_pred[:, 50:])
-                    inverse_exp_pred = np.concatenate((inverse_exp_pred, exp_suffix), axis=1)               # (T, 100)
-                    inverse_exp_jaw_pred = np.concatenate((inverse_exp_pred, inverse_jaw_pred), axis=1)     # (T, 103)
-                    seq_pred = np.concatenate((shape_prefix, inverse_exp_jaw_pred), axis=1)                 # (T, 403)
-                    seq_pred = np.expand_dims(seq_pred, axis=0)     # (1, T, 403)
+                    print(prediction.shape)
 
                     save_keyid = key_id[i].split("_")
                     emo = emo_dict[str(save_keyid[2])]
@@ -246,7 +240,7 @@ def sample(newcfg: DictConfig) -> None:
                     else:
                         npypath = path / f"{name[i]}_{save_keyid[0]}_{emo}_{ints}.npy"
 
-                    np.save(npypath, seq_pred)
+                    np.save(npypath, prediction)
                 progress.update(task, advance=1)
 
     if npypath is not None:
