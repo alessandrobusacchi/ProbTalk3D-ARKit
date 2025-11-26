@@ -18,9 +18,11 @@
 
 2. Extract the "reconstruction_v1.zip" archive and put the "EMICA-MEAD_flame2020" folder in this directory.
 
-3. Run the python script "process_animation.py"
+3. There are some subjects in this reconstruction that do not have the correct named folder for the sequences (e.g., W036). Every subject should have 001-040 (for neutral) and 001-030 (for emotional) named directory for the sequences. Hence, a simple renaming script can fix this. Check [this issue](https://github.com/uuembodiedsocialai/ProbTalk3D/issues/11) for more details. Once renaming is done according to the issue, go to the next step.
 
-4. The processed animation data files will be saved in "~/datasets/mead/param/" directory as npy files.
+4. Run the python script "process_animation.py"
+
+5. The processed animation data files will be saved in "~/datasets/mead/param/" directory as npy files.
 
 
 
