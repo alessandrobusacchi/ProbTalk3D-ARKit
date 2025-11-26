@@ -11,7 +11,7 @@ from rich.progress import Progress, BarColumn, TimeRemainingColumn
 logger = logging.getLogger(__name__)
 
 
-@hydra.main(version_base=None, config_path="configs", config_name="render_param")
+@hydra.main(version_base=None, config_path="configs", config_name="render_param_emo")
 def _render(cfg: DictConfig):
     return render(cfg)
 

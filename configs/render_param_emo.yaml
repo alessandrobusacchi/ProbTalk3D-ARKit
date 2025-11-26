@@ -8,14 +8,14 @@ progress_bar: true
 
 renderBase_path: ${path.code_dir}/deps/render
 renderScript_path: ${renderBase_path}/blender_script.py
-blend_path: ${renderBase_path}/3DMEAD.blend
+blend_path: ${renderBase_path}/3DMEAD_EmoTalk.blend
 blender_path: ${renderBase_path}/blender/blender
 
 result_folder: ${path.code_dir}/results/generation/vqvae_pred/n1sc8lk9/0.2
 resultMotion_folder: ${result_folder}/
 
 audio_folder: ${path.code_dir}/results/generation/test_audio
-output_path: ${result_folder}/renders/facediff_face
+output_path: ${result_folder}/renders/emotalk_face
 
 defaults:
   - logger: none

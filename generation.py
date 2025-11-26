@@ -146,6 +146,7 @@ def sample(newcfg: DictConfig) -> None:
     from framework.data.tools.collate import audio_normalize
     import librosa
     audio_dir = Path(cfg.input_path)
+
     files = list(audio_dir.glob("*.wav"))
     files = os_sorted(files)
     keys = [file.stem for file in files]
@@ -153,7 +154,7 @@ def sample(newcfg: DictConfig) -> None:
     # set style one hot
     ids = get_split_keyids(path=cfg.data.split_path, split="train")
     emotions = list(range(8))
-    intensitys = list(range(3))
+    intensities = list(range(3))
     import random
 
     # load audio
@@ -167,7 +168,6 @@ def sample(newcfg: DictConfig) -> None:
         speech_array, _ = librosa.load(file, sr=16000)
         speech_array = audio_normalize(speech_array)
         audio_data.append(speech_array)
-
         # setting keyid for style control
         if cfg.id is not None:
             if idx > len(cfg.id)-1:             # if did not set the keyid
@@ -197,16 +197,16 @@ def sample(newcfg: DictConfig) -> None:
         if cfg.intensity is not None:
             if idx > len(cfg.intensity)-1:      # if did not set the intensity
                 print(f"choosing a random intensity for audio '{key}'")
-                intensity = random.choice(intensitys)
+                intensity = random.choice(intensities)
             else:
-                if cfg.intensity[idx] in intensitys:
+                if cfg.intensity[idx] in intensities:
                     intensity = cfg.intensity[idx]
                 else:
                     print(f"intensity {cfg.intensity[idx]} is not supported, choosing a random one")
-                    intensity = random.choice(intensitys)
+                    intensity = random.choice(intensities)
         else:
             print(f"choosing a random intensity for audio '{key}'")
-            intensity = random.choice(intensitys)
+            intensity = random.choice(intensities)
         keyid = '{}_x_{}_{}'.format(id, emotion, intensity)
         key_id.append(keyid)
 
