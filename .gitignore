@@ -1,10 +1,13 @@
 .idea/
 model_weights/
 **/__pycache__/
+datasets/mead_arkit/param
+datasets/mead_arkit/wav
 results/
 outputs/
 deps/render/
-
+diffusion/hubert/hubert-base-ls960
+diffusion/hubert/hubert-xlarge-ls960-ft
 
 # ignore the following extensions
 *.npy

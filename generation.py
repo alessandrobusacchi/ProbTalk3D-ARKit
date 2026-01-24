@@ -151,7 +151,7 @@ def sample(newcfg: DictConfig) -> None:
     # set style one hot
     ids = get_split_keyids(path=cfg.data.split_path, split="train")
     emotions = list(range(8))
-    intensitys = list(range(3))
+    intensities  = list(range(3))
     import random
 
     # load audio
@@ -213,16 +213,16 @@ def sample(newcfg: DictConfig) -> None:
         if cfg.intensity is not None:
             if idx > len(cfg.intensity)-1:      # if did not set the intensity
                 print(f"choosing a random intensity for audio '{key}'")
-                intensity = random.choice(intensitys)
+                intensity = random.choice(intensities )
             else:
-                if cfg.intensity[idx] in intensitys:
+                if cfg.intensity[idx] in intensities :
                     intensity = cfg.intensity[idx]
                 else:
                     print(f"intensity {cfg.intensity[idx]} is not supported, choosing a random one")
-                    intensity = random.choice(intensitys)
+                    intensity = random.choice(intensities )
         else:
             print(f"choosing a random intensity for audio '{key}'")
-            intensity = random.choice(intensitys)
+            intensity = random.choice(intensities )
         keyid = '{}_x_{}_{}'.format(id, emotion, intensity)
         key_id.append(keyid)
 
@@ -243,19 +243,10 @@ def sample(newcfg: DictConfig) -> None:
                              "prosody": [prosody_data[i]]}
                     print("Audio:", name[i], "Style:", batch["keyid"], "Sample number:", index+1)
 
-                    exp_jaw_pred = model(batch, sample=cfg.sample)              # [1, T, 53]
-                    exp_jaw_pred = detach_to_numpy(exp_jaw_pred.squeeze(0))     # (T, 53)
-
-                    # denormalization pred
-                    shape_prefix = np.zeros((exp_jaw_pred.shape[0], 300))
-                    exp_suffix = np.zeros((exp_jaw_pred.shape[0], 50))
-
-                    inverse_exp_pred = scaler_exp.inverse_transform(exp_jaw_pred[:, :50])
-                    inverse_jaw_pred = scaler_jaw.inverse_transform(exp_jaw_pred[:, 50:])
-                    inverse_exp_pred = np.concatenate((inverse_exp_pred, exp_suffix), axis=1)               # (T, 100)
-                    inverse_exp_jaw_pred = np.concatenate((inverse_exp_pred, inverse_jaw_pred), axis=1)     # (T, 103)
-                    seq_pred = np.concatenate((shape_prefix, inverse_exp_jaw_pred), axis=1)                 # (T, 403)
-                    seq_pred = np.expand_dims(seq_pred, axis=0)     # (1, T, 403)
+                    prediction = model(batch, sample=cfg.sample)
+                    prediction = prediction.squeeze()
+                    prediction = prediction.detach().cpu().numpy()
+                    print(prediction.shape)
 
                     save_keyid = key_id[i].split("_")
                     emo = emo_dict[str(save_keyid[2])]
@@ -265,7 +256,7 @@ def sample(newcfg: DictConfig) -> None:
                     else:
                         npypath = path / f"{name[i]}_{save_keyid[0]}_{emo}_{ints}.npy"
 
-                    np.save(npypath, seq_pred)
+                    np.save(npypath, prediction)
                 progress.update(task, advance=1)
 
     if npypath is not None:

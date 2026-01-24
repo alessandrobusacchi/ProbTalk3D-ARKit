@@ -30,7 +30,7 @@ version_prior: ""
 
 device: null
 
-nfeats: 53      # motion features dimension
+nfeats: 51      # motion features dimension
 input_path: ??? # audio input path
 
 # style one_hot

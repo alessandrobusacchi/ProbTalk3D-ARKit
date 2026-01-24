@@ -144,7 +144,7 @@ class VqvaePredict(BaseModel):
 
         # only works for batch_size=1
         batch['audio'] = torch.cat(resample_audio_feature, dim=0)       # [1, T, 768*2]
-        batch['motion'] = torch.cat(resample_motion_feature, dim=0)     # [1, T, 53]
+        batch['motion'] = torch.cat(resample_motion_feature, dim=0) #.float()     # [1, T, 53]
         batch['prosody'] = torch.cat(prosody_feature, dim=0)
 
         # print("prosody: ", batch['prosody'])

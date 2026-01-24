@@ -3,3 +3,4 @@ deps: ${code_path:./deps}
 datasets: ${code_path:./datasets}
 code_dir: ${code_path:}
 working_dir: ${working_path:""}
+hubert_dir: ${code_path:./diffusion/hubert}

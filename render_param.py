@@ -19,7 +19,7 @@ def _render(cfg: DictConfig):
 def render_video(cfg: DictConfig, wav_path: Path, filename: str) -> None:
     image_path = Path(cfg.resultMotion_folder) / filename
     os.makedirs(image_path, exist_ok=True)
-    image_temp = image_path / "%d.png"
+    image_temp = image_path / "%04d.png"
 
     output_path = cfg.output_path
     if not os.path.exists(output_path):
@@ -52,10 +52,10 @@ def render_video(cfg: DictConfig, wav_path: Path, filename: str) -> None:
     p.wait()
 
     if os.path.isfile(wav_path):
-        cmd = 'ffmpeg -r 25 -i "{}" -i "{}" -pix_fmt yuv420p -s 1280x720 "{}" -y -hide_banner -loglevel error'\
+        cmd = 'ffmpeg -r 30 -i "{}" -i "{}" -pix_fmt yuv420p -s 1280x720 "{}" -y -hide_banner -loglevel error'\
             .format(image_temp, wav_path, output_path)
     else:
-        cmd = 'ffmpeg -r 25 -i "{}" -pix_fmt yuv420p -s 1280x720 "{}" -y -hide_banner -loglevel error' \
+        cmd = 'ffmpeg -r 30 -i "{}" -pix_fmt yuv420p -s 1280x720 "{}" -y -hide_banner -loglevel error' \
             .format(image_temp, output_path)
     subprocess.call(cmd, shell=True)
 
@@ -73,9 +73,13 @@ def render(cfg: DictConfig) -> None:
             filename = Path(sequence).stem
             motion_path = resultMotion_folder/sequence
 
-            wav_name = filename.split("_")
-            wav_name = "_".join(wav_name[:-3])
-            wav_path = Path(audio_folder) / f"{wav_name}.wav"
+            # wav_name = filename.split("_")
+            # wav_name = "_".join(wav_name[:-3])
+            # wav_path = Path(audio_folder) / f"{wav_name}.wav"
+
+            audioFilename = filename.split("_")[0]
+            print(audioFilename)
+            wav_path = Path(audio_folder) / f"{audioFilename}.wav"
 
             if not os.path.isfile(wav_path):
                 wav_path = Path(audio_folder) / f"{filename}.wav"   # GT
