@@ -132,7 +132,6 @@ class MEAD(Dataset):
         return element
 
     def __getitem__(self, index):
-        # print("index: ", index)
         keyid = self.keyids[index]
         element = self.load_keyid(keyid)
         return element

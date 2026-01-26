@@ -154,14 +154,8 @@ def sample(newcfg: DictConfig) -> None:
     intensities  = list(range(3))
     import random
 
-    # load audio
-    try:
-        import disvoice
-    except ImportError:
-        print("import error for disvoice")
-    from prosody import Prosody
+    from disvoice.prosody import Prosody
     prosody_obj = Prosody()
-
 
     name = []
     audio_data = []

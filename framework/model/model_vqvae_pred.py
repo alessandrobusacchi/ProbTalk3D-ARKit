@@ -55,7 +55,7 @@ class VqvaePredict(BaseModel):
 
         self.feature_predictor = instantiate(self.hparams.feature_predictor,
                                              audio_dim=audio_encoded_dim * 2,   # 768*2
-                                             one_hot_dim=sum(one_hot_dim[:]),   # 32+8+3
+                                             one_hot_dim=sum(one_hot_dim[:]),   # 24+8+3
                                              prosody_dim=103)
         logger.info(f"3. 'Audio Encoder' loaded")
 
@@ -108,8 +108,8 @@ class VqvaePredict(BaseModel):
         assert len(resample_audio_feature) == 1, "Batch size > 1 not supported"
 
         # only works for batch_size=1
-        batch['audio'] = torch.cat(resample_audio_feature, dim=0)
-        batch['prosody'] = torch.cat(prosody_feature, dim=0)
+        batch['audio'] = torch.cat(resample_audio_feature, dim=0).float()
+        batch['prosody'] = torch.cat(prosody_feature, dim=0).float()
         prediction = self.feature_predictor(batch['audio'], style_ont_hot.to(self.device), batch['prosody'].to(self.device))  # [B, T, 256]
         motion_quant_pred, _, _ = self.motion_prior.quantize(prediction, sample=sample,
                                                              temperature=self.temperature,  # 0.2 by default,
@@ -143,9 +143,9 @@ class VqvaePredict(BaseModel):
         assert len(resample_audio_feature) == 1, "Batch size > 1 not supported"
 
         # only works for batch_size=1
-        batch['audio'] = torch.cat(resample_audio_feature, dim=0)       # [1, T, 768*2]
-        batch['motion'] = torch.cat(resample_motion_feature, dim=0) #.float()     # [1, T, 53]
-        batch['prosody'] = torch.cat(prosody_feature, dim=0)
+        batch['audio'] = torch.cat(resample_audio_feature, dim=0).float()       # [1, T, 768*2]
+        batch['motion'] = torch.cat(resample_motion_feature, dim=0).float()     # [1, T, 53]
+        batch['prosody'] = torch.cat(prosody_feature, dim=0).float()
 
         # print("prosody: ", batch['prosody'])
         # print("prosody type: ", type(batch['prosody']))

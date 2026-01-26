@@ -5,6 +5,7 @@ _target_: framework.data.mead_arkit.MeadARKitDataModule
 motion_path: ${path.datasets}/mead_arkit/param
 audio_path: ${path.datasets}/mead_arkit/wav
 split_path: ${path.datasets}/mead-arkit-splits-prior
+prosody_path: ${path.datasets}/mead-arkit/prosody_static
 
 load_audio: false
 
@@ -21,4 +22,4 @@ tiny: false  # use a tiny part of the dataset to get the data properties
 debug: false # use a small part of the dataset for debugging
 
 # One-hot encoding
-one_hot_dim: [32, 8, 3]  # total number of identities, emotions, intensities
+one_hot_dim: [24, 8, 3]  # total number of identities, emotions, intensities

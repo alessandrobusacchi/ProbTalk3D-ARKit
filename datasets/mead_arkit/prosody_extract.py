@@ -11,6 +11,9 @@ save_directory_static = "prosody_static/"
 save_directory_dynamic = "prosody_dynamic/"
 wav_dir = "./wav/"
 
+os.makedirs(save_directory_static, exist_ok=True)
+os.makedirs(save_directory_dynamic, exist_ok=True)
+
 audio_files = [f for f in os.listdir(wav_dir) if f.endswith(".wav")]
 
 # print(audio_files)
@@ -23,10 +26,7 @@ for file in audio_files:
     audio_file = wav_dir + file
     features_static = prosody.extract_features_file(audio_file, static=True, plots=False, fmt="npy")
     features_dynamic = prosody.extract_features_file(audio_file, static=False, plots=False, fmt="npy")
-
-    print(target_path_static)
-    print(target_path_dynamic)
-
+#    print(target_path)
     np.save(target_path_static, features_static)
     np.save(target_path_dynamic, features_dynamic)
     print("processed: ", audio_files[count])
