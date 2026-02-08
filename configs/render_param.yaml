@@ -11,7 +11,7 @@ renderScript_path: ${renderBase_path}/blender_script.py
 blend_path: ${renderBase_path}/3DMEAD.blend
 blender_path: ${renderBase_path}/blender/blender
 
-result_folder: ${path.code_dir}/results/generation/vqvae_pred/n1sc8lk9/0.2
+result_folder: ${path.code_dir}/results/generation/vqvae_pred/stage_2/0.2
 resultMotion_folder: ${result_folder}/
 
 audio_folder: ${path.code_dir}/results/generation/test_audio

@@ -33,7 +33,7 @@ int_dict = {
    }
 
 
-@hydra.main(version_base=None, config_path="configs", config_name="generation")
+@hydra.main(version_base=None, config_path="configs", config_name="generation_single")
 def _sample(cfg: DictConfig):
     return sample(cfg)
 
@@ -144,109 +144,61 @@ def sample(newcfg: DictConfig) -> None:
     from framework.data.tools.collate import audio_normalize
     import librosa
     audio_dir = Path(cfg.input_path)
-    files = list(audio_dir.glob("*.wav"))
-    files = os_sorted(files)
-    keys = [file.stem for file in files]
 
     # set style one hot
-    ids = get_split_keyids(path=cfg.data.split_path, split="train")
-    emotions = list(range(8))
-    intensities  = list(range(3))
-    import random
+    subject = cfg.id
+    emotion = cfg.emotion
+    intensity = cfg.intensity
+
+    print(subject, emotion, intensity)
 
     from disvoice.prosody import Prosody
     prosody_obj = Prosody()
 
-    name = []
-    audio_data = []
-    key_id = []
-    prosody_data = []
-    for idx, key in enumerate(keys):
-        name.append(key)
+    name = audio_dir.stem
 
-        file = files[idx]
-        speech_array, _ = librosa.load(file, sr=16000)
-        speech_array = audio_normalize(speech_array)
-        audio_data.append(speech_array)
+    speech_array, _ = librosa.load(audio_dir, sr=16000)
+    speech_array = audio_normalize(speech_array)
+    audio_data = speech_array
 
-        # prosody features
-        prosody_features_static = prosody_obj.extract_features_file(file, static=True, plots=False, fmt="npy")
-        if np.isnan(prosody_features_static).any():
-            # print(p_dir, " contains NAN value")
-            prosody_features_static = np.nan_to_num(prosody_features_static)
-        p_torch = torch.from_numpy(prosody_features_static).unsqueeze(0)
-        p_torch = p_torch.to(torch.float32)
-        prosody_data.append(p_torch)
+    # prosody features
+    prosody_features_static = prosody_obj.extract_features_file(audio_dir, static=True, plots=False, fmt="npy")
+    if np.isnan(prosody_features_static).any():
+        prosody_features_static = np.nan_to_num(prosody_features_static)
 
-        # setting keyid for style control
-        if cfg.id is not None:
-            if idx > len(cfg.id)-1:             # if did not set the keyid
-                print(f"choosing a random id for audio '{key}'")
-                id = random.choice(ids)
-            else:
-                if cfg.id[idx] in ids:
-                    id = cfg.id[idx]
-                else:
-                    print(f"id {cfg.id[idx]} is not supported, choosing a random one")
-                    id = random.choice(ids)
-        else:
-            print(f"choosing a random id for audio '{key}'")
-            id = random.choice(ids)
-        if cfg.emotion is not None:
-            if idx > len(cfg.emotion)-1:        # if did not set the emotion
-                print(f"choosing a random emotion for audio '{key}'")
-                emotion = random.choice(emotions)
-            else:
-                emotion = next((k for k, v in emo_dict.items() if v == cfg.emotion[idx]), None)
-                if emotion is None:
-                    print(f"emotion {cfg.emotion[idx]} is not supported, choosing a random one")
-                    emotion = random.choice(emotions)
-        else:
-            print(f"choosing a random emotion for audio '{key}'")
-            emotion = random.choice(emotions)
-        if cfg.intensity is not None:
-            if idx > len(cfg.intensity)-1:      # if did not set the intensity
-                print(f"choosing a random intensity for audio '{key}'")
-                intensity = random.choice(intensities )
-            else:
-                if cfg.intensity[idx] in intensities :
-                    intensity = cfg.intensity[idx]
-                else:
-                    print(f"intensity {cfg.intensity[idx]} is not supported, choosing a random one")
-                    intensity = random.choice(intensities )
-        else:
-            print(f"choosing a random intensity for audio '{key}'")
-            intensity = random.choice(intensities )
-        keyid = '{}_x_{}_{}'.format(id, emotion, intensity)
-        key_id.append(keyid)
+    # Ensure prosody is on the same device as the model
+    p_torch = torch.from_numpy(prosody_features_static).unsqueeze(0)
+    p_torch = p_torch.to(torch.float32).to(model.device)
+    prosody_data = p_torch
 
-    npypath = None
+    keyid = '{}_x_{}_{}'.format(subject, emotion, intensity)
+
     with torch.no_grad():
         with Progress(transient=True) as progress:
-            for i in range(len(name)):
-                task = progress.add_task("Generating", total=len(name[i]))
-                progress.update(task, description=f"Sampling {name[i]}...")
-                for index in range(cfg.number_of_samples):
-                    batch = {"audio": [audio_data[i]],
-                             "keyid": [key_id[i]],
-                             "prosody": [prosody_data[i]]}
-                    print("Audio:", name[i], "Style:", batch["keyid"], "Sample number:", index+1)
+            # Removed 'for i in range(len(name))' loop which was causing multiple redundant runs
+            task = progress.add_task("Generating animation for audio")
 
-                    prediction = model(batch, sample=cfg.sample)
-                    prediction = prediction.squeeze()
-                    prediction = prediction.detach().cpu().numpy()
-                    print(prediction.shape)
+            print(audio_data)
+            audio_tensor = torch.from_numpy(audio_data).unsqueeze(0).float()
+            print(audio_tensor)
+            batch = {"audio": [audio_tensor],
+                     "keyid": [keyid],
+                     "prosody": [prosody_data]}
 
-                    save_keyid = key_id[i].split("_")
-                    emo = emo_dict[str(save_keyid[2])]
-                    ints = int_dict[str(save_keyid[3])]
-                    if cfg.number_of_samples > 1:
-                        npypath = path / f"{name[i]}_{save_keyid[0]}_{emo}_{ints}({index+1}).npy"
-                    else:
-                        npypath = path / f"{name[i]}_{save_keyid[0]}_{emo}_{ints}.npy"
+            print("Audio:", name, "Emotion:", emotion, "Intensity", intensity)
 
-                    np.save(npypath, prediction)
-                progress.update(task, advance=1)
+            prediction = model(batch, sample=cfg.sample)
+            prediction = prediction.squeeze()
+            prediction = prediction.detach().cpu().numpy()
+            print(prediction.shape)
+
+            emotion_label = emo_dict[str(emotion)]
+            intensity_label = int_dict[str(intensity)]
+
+            npypath = path / f"{name}_{subject}_{emotion_label}_{intensity_label}.npy"
+            np.save(npypath, prediction)
+
+            progress.update(task, advance=1)
 
     if npypath is not None:
         logger.info(f"All the sampling are done. You can find them here:\n{npypath.parent}")
