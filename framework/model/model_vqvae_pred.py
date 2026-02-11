@@ -150,7 +150,6 @@ class VqvaePredict(BaseModel):
                     device=audio_feat.device
                 )
 
-            # 🔑 unified resampling (same logic as FaceDiffuser)
             audio_feat, motion_ref, frame_num = adjust_input_representation(
                 audio_feat,
                 motion_ref,
