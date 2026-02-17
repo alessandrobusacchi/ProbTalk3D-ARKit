@@ -359,3 +359,70 @@ C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.
 [08/02/26 12:25:14][__main__][INFO] - All the sampling are done. You can find them here:
 C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
 [08/02/26 12:26:01][__main__][INFO] - Video saved at: C:\Users\alexb\Develop\ProbTalk3D-ARKit/results/generation/vqvae_pred/stage_2/0.2/renders/facediff_face
+[16/02/26 12:42:34][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 12:42:34][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 12:42:34][__main__][INFO] - Using default motion prior.
+[16/02/26 12:42:34][__main__][INFO] - Loading model
+[16/02/26 12:52:07][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 12:52:07][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 12:52:07][__main__][INFO] - Using default motion prior.
+[16/02/26 12:52:07][__main__][INFO] - Loading model
+[16/02/26 13:03:42][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 13:03:42][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:03:42][__main__][INFO] - Using default motion prior.
+[16/02/26 13:03:42][__main__][INFO] - Loading model
+[16/02/26 13:03:52][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[16/02/26 13:03:53][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[16/02/26 13:03:53][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[16/02/26 13:03:53][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[16/02/26 13:08:18][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 13:08:18][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:08:18][__main__][INFO] - Using default motion prior.
+[16/02/26 13:08:18][__main__][INFO] - Loading model
+[16/02/26 13:09:48][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 13:09:48][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:09:48][__main__][INFO] - Using default motion prior.
+[16/02/26 13:09:48][__main__][INFO] - Loading model
+[16/02/26 13:09:55][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[16/02/26 13:09:55][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[16/02/26 13:09:56][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[16/02/26 13:09:56][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[16/02/26 13:09:56][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:09:56][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:09:56][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[16/02/26 13:09:56][__main__][INFO] - Model 'ProbTalk3D' loaded
+[16/02/26 13:09:57][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:09:57][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:10:12][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:11:30][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 13:11:30][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:11:30][__main__][INFO] - Using default motion prior.
+[16/02/26 13:11:30][__main__][INFO] - Loading model
+[16/02/26 13:11:37][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[16/02/26 13:11:37][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[16/02/26 13:11:37][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[16/02/26 13:11:37][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[16/02/26 13:11:37][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:11:37][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:11:37][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[16/02/26 13:11:37][__main__][INFO] - Model 'ProbTalk3D' loaded
+[16/02/26 13:11:39][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:11:39][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:12:42][__main__][INFO] - Sample script. The outputs will be stored in:
+[16/02/26 13:12:42][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:12:42][__main__][INFO] - Using default motion prior.
+[16/02/26 13:12:42][__main__][INFO] - Loading model
+[16/02/26 13:12:50][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[16/02/26 13:12:50][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[16/02/26 13:12:50][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[16/02/26 13:12:50][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[16/02/26 13:12:50][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:12:50][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:12:50][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[16/02/26 13:12:50][__main__][INFO] - Model 'ProbTalk3D' loaded
+[16/02/26 13:12:52][framework.model.utils.tools][INFO] - Model weights restored.
+[16/02/26 13:12:52][framework.model.utils.tools][INFO] - Model in eval mode.
+[16/02/26 13:12:57][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[16/02/26 13:16:49][__main__][INFO] - Video saved at: C:\Users\alexb\Develop\ProbTalk3D-ARKit/results/generation/vqvae_pred/stage_2/0.2/renders/facediff_face

@@ -87,4 +87,3 @@ class VQVAE(BaseModel):
             self.log("loss_val", loss_val, prog_bar=True, on_step=True, on_epoch=False)
 
         return loss
-

@@ -14,6 +14,22 @@ lmd_jaw_recons: 0.1
 recons_jaw: ${.lmd_jaw_recons}
 recons_jaw_func: ${model.func_recons}
 
+lmd_exp_vel: 0.1
+vel_exp: ${.lmd_exp_vel}
+vel_exp_func:
+  _target_: framework.model.losses.temporal_losses.VelocityLoss
 
+lmd_jaw_vel: 0.05
+vel_jaw: ${.lmd_jaw_vel}
+vel_jaw_func:
+  _target_: framework.model.losses.temporal_losses.VelocityLoss
 
+lmd_exp_acc: 0.1
+acc_exp: ${.lmd_exp_acc}
+acc_exp_func:
+  _target_: framework.model.losses.temporal_losses.AccelerationLoss
 
+lmd_jaw_acc: 0.02
+acc_jaw: ${.lmd_jaw_acc}
+acc_jaw_func:
+  _target_: framework.model.losses.temporal_losses.AccelerationLoss

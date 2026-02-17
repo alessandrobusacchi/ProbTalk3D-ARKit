@@ -16,5 +16,3 @@ defaults:
   - losses: loss_vqvae_prior
   - optim: adamw
   - /model/losses/function/l1@func_recons
-
-
