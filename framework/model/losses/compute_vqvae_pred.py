@@ -7,8 +7,7 @@ class ComputeLosses(Module):
     def __init__(self,  **kwargs):
         super().__init__()
 
-        # losses = ["latent_manifold", "recons_exp", "recons_jaw", "vel_exp", "vel_jaw", "acc_exp", "acc_jaw", "total"]
-        losses = ["quant", "recons_exp", "recons_jaw", "total"]
+        losses = ["latent_manifold", "recons_blend", "total"]
 
         self.losses_values = {}
         for loss in losses:
@@ -26,26 +25,16 @@ class ComputeLosses(Module):
     def update(self, motion_quant_pred=None, motion_quant_ref=None, motion_pred=None, motion_ref=None):
         total: float = 0.0
 
-        P = motion_pred.shape[-1]
+        # total += self._update_loss("latent_manifold", outputs=motion_quant_pred, inputs=motion_quant_ref)
+        # total += self._update_loss("recons_blend", outputs=motion_quant_pred, inputs=motion_quant_ref)
 
-        jaw_indices = [23, 24, 25, 26]
-        jaw_mask = torch.tensor(jaw_indices, device=motion_pred.device)
+        l_latent = self._update_loss("latent_manifold", outputs=motion_quant_pred, inputs=motion_quant_ref)
+        l_recons = self._update_loss("recons_blend", outputs=motion_quant_pred, inputs=motion_quant_ref)
 
-        exp_indices = [i for i in range(P) if i not in jaw_indices]
-        exp_mask = torch.tensor(exp_indices, device=motion_pred.device)
+        # Print the values for weight tuning
+        print(f"[Loss Breakdown] Quant: {l_latent:.6f} | Recons: {l_recons:.6f}")
 
-        exp_pred = motion_pred[:, :, exp_mask]
-        jaw_pred = motion_pred[:, :, jaw_mask]
-        exp_ref = motion_ref[:, :, exp_mask]
-        jaw_ref = motion_ref[:, :, jaw_mask]
-
-        total += self._update_loss("latent_manifold", outputs=motion_quant_pred, inputs=motion_quant_ref)
-        total += self._update_loss("recons_exp", outputs=exp_pred, inputs=exp_ref)
-        total += self._update_loss("recons_jaw", outputs=jaw_pred, inputs=jaw_ref)
-        # total += self._update_loss("vel_exp", outputs=exp_pred, inputs=exp_ref)
-        # total += self._update_loss("vel_jaw", outputs=jaw_pred, inputs=jaw_ref)
-        # total += self._update_loss("acc_exp", outputs=exp_pred, inputs=exp_ref)
-        # total += self._update_loss("acc_jaw", outputs=jaw_pred, inputs=jaw_ref)
+        total = l_latent + l_recons
 
         # Update the total loss
         self.total += total.detach()

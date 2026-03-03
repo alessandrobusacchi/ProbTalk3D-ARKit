@@ -33,7 +33,7 @@ int_dict = {
    }
 
 
-@hydra.main(version_base=None, config_path="configs", config_name="generation_single")
+@hydra.main(version_base=None, config_path="configs", config_name="generation_single_firststage")
 def _sample(cfg: DictConfig):
     return sample(cfg)
 
@@ -79,24 +79,18 @@ def sample(newcfg: DictConfig) -> None:
     logger.info("Sample script. The outputs will be stored in:")
     folder_name = cfg.folder.split("/")[-1]
     output_dir = Path(cfg.path.code_dir) / f"results/generation/{cfg.experiment}/{folder_name}"
+
     path = None
-    if hasattr(cfg.model, 'vae_pred') and cfg.model.vae_pred:
-        path = get_path_vae(output_dir, onesample, cfg.mean, cfg.fact)
-    if hasattr(cfg.model, 'vqvae_pred') and cfg.model.vqvae_pred:
-        if not cfg.sample:
-            path = get_path_vqvae(output_dir, onesample, "none", cfg.k)
-        else:
-            path = get_path_vqvae(output_dir, onesample, cfg.temperature, cfg.k)
     if hasattr(cfg.model, 'vqvae_prior') and cfg.model.vqvae_prior:
-        if not cfg.sample:
-            path = get_path_vqvae(output_dir, onesample, "none", cfg.k)
-        else:
-            path = get_path_vqvae(output_dir, onesample, cfg.temperature, cfg.k)
-    if path is None:
-        raise ValueError("No model specified in the config file.")
+        path = get_path_vqvae(output_dir, onesample, "none", cfg.k)
     else:
-        path.mkdir(exist_ok=True, parents=True)
-        logger.info(f"{path}")
+        # FALLBACK FOR STAGE 1 VQ-VAE
+        # Since Stage 1 doesn't have prior/pred flags, we just assign a folder
+        path = output_dir / "reconstructions"
+
+    # Create the directory safely
+    path.mkdir(exist_ok=True, parents=True)
+    logger.info(f"Outputs will be saved to: {path}")
 
     # update the motion prior if needed
     if cfg.folder_prior is not None and cfg.version_prior is not None:
@@ -140,79 +134,57 @@ def sample(newcfg: DictConfig) -> None:
     if hasattr(cfg.model, 'vqvae_pred') and cfg.model.vqvae_pred:
         model.temperature = cfg.temperature
         model.k = cfg.k
-    if hasattr(cfg.model, 'vqvae_prior') and cfg.model.vqvae_prior:
-        model.temperature = cfg.temperature
-        model.k = cfg.k
 
     from rich.progress import Progress
     # remove printing for changing the seed
     logging.getLogger('pytorch_lightning.utilities.seed').setLevel(logging.WARNING)
-
-    # load audio
-    from framework.data.tools.collate import audio_normalize
-    import librosa
-    audio_dir = Path(cfg.input_path)
 
     # set style one hot
     subject = cfg.id
     emotion = cfg.emotion
     intensity = cfg.intensity
 
-    print(subject, emotion, intensity)
-
-    from disvoice.prosody import Prosody
-    prosody_obj = Prosody()
-
-    name = audio_dir.stem
-
-    speech_array, _ = librosa.load(audio_dir, sr=16000)
-    speech_array = audio_normalize(speech_array)
-    audio_data = speech_array
-
-    # prosody features
-    prosody_features_static = prosody_obj.extract_features_file(audio_dir, static=True, plots=False, fmt="npy")
-    if np.isnan(prosody_features_static).any():
-        prosody_features_static = np.nan_to_num(prosody_features_static)
-
-    # Ensure prosody is on the same device as the model
-    p_torch = torch.from_numpy(prosody_features_static).unsqueeze(0)
-    p_torch = p_torch.to(torch.float32).to(model.device)
-    prosody_data = p_torch
+    sentence = "001"
+    sequence_name = f"{subject}_{sentence}_{emotion}_{intensity}"
 
     keyid = '{}_x_{}_{}'.format(subject, emotion, intensity)
 
+    gt_motion_path = f"datasets/mead_arkit/param/{sequence_name}.npy"
+
+    if not os.path.exists(gt_motion_path):
+        raise FileNotFoundError(f"Could not find ground truth motion at: {gt_motion_path}")
+
+    gt_motion_data = np.load(gt_motion_path)
+
+    motion_tensor = torch.from_numpy(gt_motion_data).unsqueeze(0).float().to(model.device)
+
+    batch = {
+        "motion": [motion_tensor],
+        "keyid": [keyid]
+    }
+
     with torch.no_grad():
         with Progress(transient=True) as progress:
-            # Removed 'for i in range(len(name))' loop which was causing multiple redundant runs
-            task = progress.add_task("Generating animation for audio")
+            task = progress.add_task("Reconstructing motion sequence")
 
-            print(audio_data)
-            audio_tensor = torch.from_numpy(audio_data).unsqueeze(0).float()
-            print(audio_tensor)
-            batch = {"audio": [audio_tensor],
-                     "keyid": [keyid],
-                     "prosody": [prosody_data]}
+            # Call the model. NO sample=cfg.sample argument!
+            prediction = model(batch)
 
-            print("Audio:", name, "Emotion:", emotion, "Intensity", intensity)
-
-            # prediction = model(batch, sample=cfg.sample)
-            prediction = model(batch, sample=cfg.sample)
-            prediction = prediction.squeeze()
-            prediction = prediction.detach().cpu().numpy()
-            print(prediction.shape)
+            # The VQVAE forward method returns motion_pred directly
+            prediction = prediction.squeeze().detach().cpu().numpy()
+            print("Reconstructed shape:", prediction.shape)
 
             emotion_label = emo_dict[str(emotion)]
             intensity_label = int_dict[str(intensity)]
 
-            npypath = path / f"{name}_{subject}_{emotion_label}_{intensity_label}.npy"
+            # Save the reconstructed sequence
+            npypath = path / f"recon_{subject}_{emotion_label}_{intensity_label}.npy"
             np.save(npypath, prediction)
 
             progress.update(task, advance=1)
 
     if npypath is not None:
-        logger.info(f"All the sampling are done. You can find them here:\n{npypath.parent}")
-    else:
-        logger.error("No audio input found.")
+        logger.info(f"Reconstruction complete. You can find it here:\n{npypath.parent}")
 
 
 if __name__ == '__main__':

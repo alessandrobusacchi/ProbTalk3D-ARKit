@@ -426,3 +426,226 @@ C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.
 [16/02/26 13:12:57][__main__][INFO] - All the sampling are done. You can find them here:
 C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
 [16/02/26 13:16:49][__main__][INFO] - Video saved at: C:\Users\alexb\Develop\ProbTalk3D-ARKit/results/generation/vqvae_pred/stage_2/0.2/renders/facediff_face
+[18/02/26 18:18:06][__main__][INFO] - Sample script. The outputs will be stored in:
+[18/02/26 18:18:06][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[18/02/26 18:18:06][__main__][INFO] - Using default motion prior.
+[18/02/26 18:18:06][__main__][INFO] - Loading model
+[18/02/26 18:18:12][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[18/02/26 18:18:12][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[18/02/26 18:18:12][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[18/02/26 18:18:12][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[02/03/26 08:36:23][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 08:40:56][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 08:53:27][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 08:54:50][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 09:01:25][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 09:01:25][__main__][INFO] - Using default motion prior.
+[02/03/26 09:03:37][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 09:03:37][__main__][INFO] - Using default motion prior.
+[02/03/26 09:03:37][__main__][INFO] - Loading model
+[02/03/26 09:03:46][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 09:03:47][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 09:03:47][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 09:03:48][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 09:03:48][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 10:00:59][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 10:00:59][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\0.2
+[02/03/26 10:00:59][__main__][INFO] - Using default motion prior.
+[02/03/26 10:00:59][__main__][INFO] - Loading model
+[02/03/26 10:01:08][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 10:01:08][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 10:01:08][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 10:01:09][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 10:01:09][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 10:05:12][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 10:05:12][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\0.2
+[02/03/26 10:05:12][__main__][INFO] - Using default motion prior.
+[02/03/26 10:05:12][__main__][INFO] - Loading model
+[02/03/26 10:05:19][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 10:05:19][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 10:05:19][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 10:05:19][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 10:05:19][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:43:07][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:46:44][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:46:44][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:46:44][__main__][INFO] - Using default motion prior.
+[02/03/26 20:46:44][__main__][INFO] - Loading model
+[02/03/26 20:48:02][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:48:02][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:48:02][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:48:03][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:48:03][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:48:03][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:48:03][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:48:03][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:48:03][__main__][INFO] - Using default motion prior.
+[02/03/26 20:48:03][__main__][INFO] - Loading model
+[02/03/26 20:48:03][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:48:03][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:48:03][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:48:04][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:48:04][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:48:04][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:02][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:50:02][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:02][__main__][INFO] - Using default motion prior.
+[02/03/26 20:50:02][__main__][INFO] - Loading model
+[02/03/26 20:50:17][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:50:17][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:50:17][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:50:18][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:50:18][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:50:18][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:19][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:50:19][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:19][__main__][INFO] - Using default motion prior.
+[02/03/26 20:50:19][__main__][INFO] - Loading model
+[02/03/26 20:50:19][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:50:19][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:50:19][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:50:19][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:50:19][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:50:19][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:47][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:50:47][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:47][__main__][INFO] - Using default motion prior.
+[02/03/26 20:50:47][__main__][INFO] - Loading model
+[02/03/26 20:50:52][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:50:52][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:50:52][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:50:53][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:50:53][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:50:53][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:53][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:50:53][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:50:53][__main__][INFO] - Using default motion prior.
+[02/03/26 20:50:53][__main__][INFO] - Loading model
+[02/03/26 20:50:53][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:50:53][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:50:53][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:50:53][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:50:53][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:50:53][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:51:41][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:51:41][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:51:41][__main__][INFO] - Using default motion prior.
+[02/03/26 20:51:41][__main__][INFO] - Loading model
+[02/03/26 20:51:46][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:51:46][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:51:47][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:51:47][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:51:47][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:51:47][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:51:47][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:51:47][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:51:47][__main__][INFO] - Using default motion prior.
+[02/03/26 20:51:47][__main__][INFO] - Loading model
+[02/03/26 20:51:47][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:51:47][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:51:47][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:51:47][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:51:47][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:51:47][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:53:51][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:53:51][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:53:51][__main__][INFO] - Using default motion prior.
+[02/03/26 20:53:51][__main__][INFO] - Loading model
+[02/03/26 20:53:56][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:53:56][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:53:56][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:53:56][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:53:56][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:53:57][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:53:57][__main__][INFO] - Sample script. The outputs will be stored in:
+[02/03/26 20:53:57][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:53:57][__main__][INFO] - Using default motion prior.
+[02/03/26 20:53:57][__main__][INFO] - Loading model
+[02/03/26 20:53:57][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[02/03/26 20:53:57][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[02/03/26 20:53:57][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[02/03/26 20:53:57][framework.model.utils.tools][INFO] - Model weights restored.
+[02/03/26 20:53:57][framework.model.utils.tools][INFO] - Model in eval mode.
+[02/03/26 20:53:57][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[02/03/26 20:59:18][__main__][INFO] - Video saved at: results/generation/vqvae_prior/stage_2/none/renders/facediff_face
+[03/03/26 10:40:17][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 10:40:17][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 10:40:17][__main__][INFO] - Using default motion prior.
+[03/03/26 10:40:17][__main__][INFO] - Loading model
+[03/03/26 11:02:24][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 11:02:24][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:02:24][__main__][INFO] - Using default motion prior.
+[03/03/26 11:02:24][__main__][INFO] - Loading model
+[03/03/26 11:09:52][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 11:09:52][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:09:52][__main__][INFO] - Using default motion prior.
+[03/03/26 11:09:52][__main__][INFO] - Loading model
+[03/03/26 11:09:58][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[03/03/26 11:09:58][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[03/03/26 11:09:58][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[03/03/26 11:09:58][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[03/03/26 11:09:58][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:09:58][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:09:58][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[03/03/26 11:09:58][__main__][INFO] - Model 'ProbTalk3D' loaded
+[03/03/26 11:10:01][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:10:01][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:10:09][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:11:06][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 11:11:06][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:11:06][__main__][INFO] - Using default motion prior.
+[03/03/26 11:11:06][__main__][INFO] - Loading model
+[03/03/26 11:11:12][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[03/03/26 11:11:12][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[03/03/26 11:11:12][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[03/03/26 11:11:12][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[03/03/26 11:11:12][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:11:12][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:11:12][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[03/03/26 11:11:12][__main__][INFO] - Model 'ProbTalk3D' loaded
+[03/03/26 11:11:13][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:11:13][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:11:56][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 11:11:56][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:11:56][__main__][INFO] - Using default motion prior.
+[03/03/26 11:11:56][__main__][INFO] - Loading model
+[03/03/26 11:12:02][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[03/03/26 11:12:02][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[03/03/26 11:12:02][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[03/03/26 11:12:02][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[03/03/26 11:12:02][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:12:02][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:12:02][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[03/03/26 11:12:02][__main__][INFO] - Model 'ProbTalk3D' loaded
+[03/03/26 11:12:04][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:12:04][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:12:06][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:12:29][__main__][INFO] - Sample script. The outputs will be stored in:
+[03/03/26 11:12:29][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:12:29][__main__][INFO] - Using default motion prior.
+[03/03/26 11:12:29][__main__][INFO] - Loading model
+[03/03/26 11:12:35][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[03/03/26 11:12:35][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[03/03/26 11:12:35][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[03/03/26 11:12:35][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[03/03/26 11:12:35][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:12:35][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:12:35][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[03/03/26 11:12:35][__main__][INFO] - Model 'ProbTalk3D' loaded
+[03/03/26 11:12:37][framework.model.utils.tools][INFO] - Model weights restored.
+[03/03/26 11:12:37][framework.model.utils.tools][INFO] - Model in eval mode.
+[03/03/26 11:12:40][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
+[03/03/26 11:14:51][__main__][INFO] - Video saved at: results/generation/vqvae_pred/stage_2/0.2/renders/facediff_face

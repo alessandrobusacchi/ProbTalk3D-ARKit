@@ -1,5 +1,5 @@
 benchmark: False
-max_epochs: 2
+max_epochs: 200
 accelerator: gpu
 # accelerator: cpu
 devices: [0]
