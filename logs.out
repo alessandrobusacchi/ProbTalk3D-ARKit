@@ -649,3 +649,366 @@ C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.
 [03/03/26 11:12:40][__main__][INFO] - All the sampling are done. You can find them here:
 C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_pred\stage_2\0.2
 [03/03/26 11:14:51][__main__][INFO] - Video saved at: results/generation/vqvae_pred/stage_2/0.2/renders/facediff_face
+[06/03/26 12:31:04][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:31:04][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:31:04][__main__][INFO] - Using default motion prior.
+[06/03/26 12:31:04][__main__][INFO] - Loading model
+[06/03/26 12:34:08][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:34:08][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:34:08][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:34:48][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:34:48][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:34:48][__main__][INFO] - Using default motion prior.
+[06/03/26 12:34:48][__main__][INFO] - Loading model
+[06/03/26 12:34:54][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:34:54][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:34:54][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:34:55][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:34:55][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:34:56][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:37:45][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:37:45][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:37:45][__main__][INFO] - Using default motion prior.
+[06/03/26 12:37:45][__main__][INFO] - Loading model
+[06/03/26 12:37:56][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:37:56][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:37:56][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:37:57][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:37:57][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:37:58][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:38:09][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:38:09][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:38:09][__main__][INFO] - Using default motion prior.
+[06/03/26 12:38:09][__main__][INFO] - Loading model
+[06/03/26 12:38:15][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:38:15][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:38:15][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:38:16][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:38:16][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:38:16][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:38:42][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:38:42][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:38:42][__main__][INFO] - Using default motion prior.
+[06/03/26 12:38:42][__main__][INFO] - Loading model
+[06/03/26 12:38:47][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:38:47][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:38:47][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:38:48][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:38:48][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:38:48][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:39:34][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:39:34][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:39:34][__main__][INFO] - Using default motion prior.
+[06/03/26 12:39:34][__main__][INFO] - Loading model
+[06/03/26 12:39:41][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:39:41][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:39:41][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:39:42][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:39:42][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:39:42][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:40:07][__main__][INFO] - Sample script. The outputs will be stored in:
+[06/03/26 12:40:07][__main__][INFO] - Outputs will be saved to: C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:40:07][__main__][INFO] - Using default motion prior.
+[06/03/26 12:40:07][__main__][INFO] - Loading model
+[06/03/26 12:40:12][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[06/03/26 12:40:12][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[06/03/26 12:40:12][__main__][INFO] - Model 'VQVAE Motion Autoencoder' loaded
+[06/03/26 12:40:13][framework.model.utils.tools][INFO] - Model weights restored.
+[06/03/26 12:40:13][framework.model.utils.tools][INFO] - Model in eval mode.
+[06/03/26 12:40:14][__main__][INFO] - Reconstruction complete. You can find it here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\generation\vqvae_prior\stage_2\none
+[06/03/26 12:44:48][__main__][INFO] - Video saved at: results/generation/vqvae_prior/stage_2/none/renders/facediff_face
+[08/04/26 12:47:30][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 12:47:31][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 12:47:31][__main__][INFO] - Loading data module
+[08/04/26 12:47:50][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 12:47:50][__main__][INFO] - Loading model
+[08/04/26 12:47:50][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 12:47:52][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 12:47:52][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 12:47:52][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 12:47:52][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 12:47:53][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:47:53][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:47:53][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 12:47:53][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 12:47:55][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:47:55][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:51:27][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 12:51:27][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 12:51:27][__main__][INFO] - Loading data module
+[08/04/26 12:51:30][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 12:51:30][__main__][INFO] - Loading model
+[08/04/26 12:51:30][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 12:51:30][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 12:51:31][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 12:51:31][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 12:51:31][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 12:51:31][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:51:31][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:51:31][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 12:51:31][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 12:51:32][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:51:32][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:53:19][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 12:53:19][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 12:53:19][__main__][INFO] - Loading data module
+[08/04/26 12:53:21][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 12:53:21][__main__][INFO] - Loading model
+[08/04/26 12:53:21][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 12:53:22][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 12:53:22][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 12:53:22][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 12:53:22][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 12:53:22][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:53:22][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:53:22][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 12:53:22][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 12:53:23][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:53:23][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:54:29][__main__][INFO] - Saving param: M005_029_6_2_angry_high_gt
+[08/04/26 12:54:29][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_0
+[08/04/26 12:54:29][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_3
+[08/04/26 12:54:30][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_6
+[08/04/26 12:54:30][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_9
+[08/04/26 12:55:20][__main__][INFO] - Saving param: M009_029_6_0_angry_low_gt
+[08/04/26 12:55:20][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_0
+[08/04/26 12:55:20][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_3
+[08/04/26 12:55:20][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_6
+[08/04/26 12:55:20][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_9
+[08/04/26 12:56:13][__main__][INFO] - Saving param: M019_028_6_1_angry_medium_gt
+[08/04/26 12:56:13][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_0
+[08/04/26 12:56:13][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_3
+[08/04/26 12:56:13][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_6
+[08/04/26 12:56:13][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_9
+[08/04/26 12:58:30][__main__][INFO] - Saving param: M022_030_5_0_disgusted_low_gt
+[08/04/26 12:58:30][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_0
+[08/04/26 12:58:30][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_3
+[08/04/26 12:58:30][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_6
+[08/04/26 12:58:30][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_9
+[08/04/26 12:59:37][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 12:59:37][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 12:59:38][__main__][INFO] - Loading data module
+[08/04/26 12:59:40][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 12:59:40][__main__][INFO] - Loading model
+[08/04/26 12:59:40][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 12:59:40][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 12:59:40][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 12:59:40][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 12:59:40][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 12:59:41][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:59:41][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 12:59:41][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 12:59:41][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 12:59:42][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 12:59:42][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 13:00:15][__main__][INFO] - Total sequence number: 64
+[08/04/26 13:00:15][__main__][INFO] - Total frame number: 3264
+[08/04/26 13:00:15][__main__][INFO] - MVE: 5.9762e-01
+[08/04/26 13:00:15][__main__][INFO] - LVE: 4.0198e-01
+[08/04/26 13:00:15][__main__][INFO] - MEE: 3.6498e-01
+[08/04/26 13:00:15][__main__][INFO] - CE: 3.6001e-01
+[08/04/26 13:00:15][__main__][INFO] - FDD: 3.3413e-01
+[08/04/26 13:00:15][__main__][INFO] - ABS FDD: 3.3430e-01
+[08/04/26 13:00:15][__main__][INFO] - Diversity: 3.3652e-01
+[08/04/26 13:00:15][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 14:36:49][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 14:36:49][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 14:36:49][__main__][INFO] - Loading data module
+[08/04/26 14:36:51][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 14:36:51][__main__][INFO] - Loading model
+[08/04/26 14:36:51][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 14:36:52][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 14:36:52][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 14:36:52][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 14:36:52][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 14:36:52][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 14:36:52][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 14:36:52][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 14:36:52][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 14:36:54][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 14:36:54][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 14:39:10][__main__][INFO] - Saving param: M005_029_6_2_angry_high_gt
+[08/04/26 14:39:10][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_0
+[08/04/26 14:39:11][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_3
+[08/04/26 14:39:11][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_6
+[08/04/26 14:39:12][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_9
+[08/04/26 14:40:21][__main__][INFO] - Saving param: M009_029_6_0_angry_low_gt
+[08/04/26 14:40:21][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_0
+[08/04/26 14:40:21][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_3
+[08/04/26 14:40:21][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_6
+[08/04/26 14:40:21][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_9
+[08/04/26 14:41:14][__main__][INFO] - Saving param: M019_028_6_1_angry_medium_gt
+[08/04/26 14:41:14][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_0
+[08/04/26 14:41:14][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_3
+[08/04/26 14:41:14][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_6
+[08/04/26 14:41:14][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_9
+[08/04/26 14:42:18][__main__][INFO] - Saving param: M022_030_5_0_disgusted_low_gt
+[08/04/26 14:42:18][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_0
+[08/04/26 14:42:18][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_3
+[08/04/26 14:42:18][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_6
+[08/04/26 14:42:18][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_9
+[08/04/26 14:44:00][__main__][INFO] - Saving param: M024_029_5_2_disgusted_high_gt
+[08/04/26 14:44:00][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_0
+[08/04/26 14:44:00][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_3
+[08/04/26 14:44:01][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_6
+[08/04/26 14:44:01][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_9
+[08/04/26 14:45:07][__main__][INFO] - Saving param: M027_028_3_2_surprised_high_gt
+[08/04/26 14:45:07][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_0
+[08/04/26 14:45:08][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_3
+[08/04/26 14:45:08][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_6
+[08/04/26 14:45:08][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_9
+[08/04/26 14:47:52][__main__][INFO] - Saving param: M029_030_2_1_sad_medium_gt
+[08/04/26 14:47:52][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_0
+[08/04/26 14:47:53][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_3
+[08/04/26 14:47:53][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_6
+[08/04/26 14:47:54][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_9
+[08/04/26 14:50:19][__main__][INFO] - Saving param: M031_029_4_1_fear_medium_gt
+[08/04/26 14:50:19][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_0
+[08/04/26 14:50:19][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_3
+[08/04/26 14:50:19][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_6
+[08/04/26 14:50:19][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_9
+[08/04/26 14:52:31][__main__][INFO] - Saving param: M035_028_2_1_sad_medium_gt
+[08/04/26 14:52:31][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_0
+[08/04/26 14:52:32][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_3
+[08/04/26 14:52:32][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_6
+[08/04/26 14:52:33][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_9
+[08/04/26 14:53:40][__main__][INFO] - Saving param: W009_030_2_1_sad_medium_gt
+[08/04/26 14:53:40][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_0
+[08/04/26 14:53:40][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_3
+[08/04/26 14:53:40][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_6
+[08/04/26 14:53:41][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_9
+[08/04/26 14:54:59][__main__][INFO] - Saving param: W015_029_2_1_sad_medium_gt
+[08/04/26 14:55:00][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_0
+[08/04/26 14:55:00][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_3
+[08/04/26 14:55:01][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_6
+[08/04/26 14:55:01][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_9
+[08/04/26 14:56:08][__main__][INFO] - Saving param: W036_028_1_1_happy_medium_gt
+[08/04/26 14:56:08][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_0
+[08/04/26 14:56:09][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_3
+[08/04/26 14:56:10][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_6
+[08/04/26 14:56:11][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_9
+[08/04/26 14:57:50][__main__][INFO] - Saving param: W038_028_2_0_sad_low_gt
+[08/04/26 14:57:50][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_0
+[08/04/26 14:57:50][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_3
+[08/04/26 14:57:50][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_6
+[08/04/26 14:57:50][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_9
+[08/04/26 14:59:01][__main__][INFO] - Saving param: W040_029_7_0_contempt_low_gt
+[08/04/26 14:59:01][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_0
+[08/04/26 14:59:01][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_3
+[08/04/26 14:59:01][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_6
+[08/04/26 14:59:01][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_9
+[08/04/26 14:59:16][__main__][INFO] - Total sequence number: 1424
+[08/04/26 14:59:16][__main__][INFO] - Total frame number: 72624
+[08/04/26 14:59:16][__main__][INFO] - MVE: 5.0289e-01
+[08/04/26 14:59:16][__main__][INFO] - LVE: 3.5639e-01
+[08/04/26 14:59:16][__main__][INFO] - MEE: 3.3078e-01
+[08/04/26 14:59:16][__main__][INFO] - CE: 3.2269e-01
+[08/04/26 14:59:16][__main__][INFO] - FDD: 1.6042e-01
+[08/04/26 14:59:16][__main__][INFO] - ABS FDD: 1.6796e-01
+[08/04/26 14:59:16][__main__][INFO] - Diversity: 2.5384e-01
+[08/04/26 14:59:16][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 15:09:08][__main__][INFO] - Sample script. The outputs will be stored in:
+[08/04/26 15:09:08][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi
+[08/04/26 15:09:08][__main__][INFO] - Loading data module
+[08/04/26 15:09:12][__main__][INFO] - Data module 'MEADARKit' loaded
+[08/04/26 15:09:12][__main__][INFO] - Loading model
+[08/04/26 15:09:12][__main__][INFO] - C:\Users\alexb\Develop\ProbTalk3D-ARKit\model_weights\ProbTalk3D\stage_2\lightning_logs\version_0\checkpoints\last.ckpt
+[08/04/26 15:09:13][framework.model.model_vqvae_pred][INFO] - 1. Audio feature extractor 'HuBERT' loaded
+[08/04/26 15:09:13][framework.model.model_vqvae_prior][INFO] - (1). Motion Encoder 'transformer_encoder' loaded
+[08/04/26 15:09:13][framework.model.model_vqvae_prior][INFO] - (2). Motion Decoder 'transformer_decoder' loaded
+[08/04/26 15:09:13][framework.model.model_vqvae_pred][INFO] - 2. 'VQVAE Motion Autoencoder' loaded
+[08/04/26 15:09:13][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 15:09:14][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 15:09:14][framework.model.model_vqvae_pred][INFO] - 3. 'Audio Encoder' loaded
+[08/04/26 15:09:14][__main__][INFO] - Model 'ProbTalk3D' loaded
+[08/04/26 15:09:15][framework.model.utils.tools][INFO] - Model weights restored.
+[08/04/26 15:09:15][framework.model.utils.tools][INFO] - Model in eval mode.
+[08/04/26 15:10:38][__main__][INFO] - Saving param: M005_029_6_2_angry_high_gt
+[08/04/26 15:10:38][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_0
+[08/04/26 15:10:38][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_3
+[08/04/26 15:10:38][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_6
+[08/04/26 15:10:39][__main__][INFO] - Saving pred: M005_029_6_2_angry_high_9
+[08/04/26 15:13:06][__main__][INFO] - Saving param: M009_029_6_0_angry_low_gt
+[08/04/26 15:13:06][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_0
+[08/04/26 15:13:06][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_3
+[08/04/26 15:13:07][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_6
+[08/04/26 15:13:07][__main__][INFO] - Saving pred: M009_029_6_0_angry_low_9
+[08/04/26 15:14:28][__main__][INFO] - Saving param: M019_028_6_1_angry_medium_gt
+[08/04/26 15:14:28][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_0
+[08/04/26 15:14:28][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_3
+[08/04/26 15:14:28][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_6
+[08/04/26 15:14:28][__main__][INFO] - Saving pred: M019_028_6_1_angry_medium_9
+[08/04/26 15:17:22][__main__][INFO] - Saving param: M022_030_5_0_disgusted_low_gt
+[08/04/26 15:17:22][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_0
+[08/04/26 15:17:22][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_3
+[08/04/26 15:17:22][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_6
+[08/04/26 15:17:22][__main__][INFO] - Saving pred: M022_030_5_0_disgusted_low_9
+[08/04/26 15:19:51][__main__][INFO] - Saving param: M024_029_5_2_disgusted_high_gt
+[08/04/26 15:19:51][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_0
+[08/04/26 15:19:52][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_3
+[08/04/26 15:19:52][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_6
+[08/04/26 15:19:53][__main__][INFO] - Saving pred: M024_029_5_2_disgusted_high_9
+[08/04/26 15:21:09][__main__][INFO] - Saving param: M027_028_3_2_surprised_high_gt
+[08/04/26 15:21:09][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_0
+[08/04/26 15:21:09][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_3
+[08/04/26 15:21:10][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_6
+[08/04/26 15:21:10][__main__][INFO] - Saving pred: M027_028_3_2_surprised_high_9
+[08/04/26 15:23:17][__main__][INFO] - Saving param: M029_030_2_1_sad_medium_gt
+[08/04/26 15:23:17][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_0
+[08/04/26 15:23:17][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_3
+[08/04/26 15:23:18][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_6
+[08/04/26 15:23:18][__main__][INFO] - Saving pred: M029_030_2_1_sad_medium_9
+[08/04/26 15:25:38][__main__][INFO] - Saving param: M031_029_4_1_fear_medium_gt
+[08/04/26 15:25:39][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_0
+[08/04/26 15:25:39][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_3
+[08/04/26 15:25:39][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_6
+[08/04/26 15:25:40][__main__][INFO] - Saving pred: M031_029_4_1_fear_medium_9
+[08/04/26 15:28:46][__main__][INFO] - Saving param: M035_028_2_1_sad_medium_gt
+[08/04/26 15:28:46][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_0
+[08/04/26 15:28:47][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_3
+[08/04/26 15:28:47][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_6
+[08/04/26 15:28:49][__main__][INFO] - Saving pred: M035_028_2_1_sad_medium_9
+[08/04/26 15:31:31][__main__][INFO] - Saving param: W009_030_2_1_sad_medium_gt
+[08/04/26 15:31:31][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_0
+[08/04/26 15:31:33][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_3
+[08/04/26 15:31:34][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_6
+[08/04/26 15:31:34][__main__][INFO] - Saving pred: W009_030_2_1_sad_medium_9
+[08/04/26 15:34:47][__main__][INFO] - Saving param: W015_029_2_1_sad_medium_gt
+[08/04/26 15:34:47][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_0
+[08/04/26 15:34:48][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_3
+[08/04/26 15:34:48][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_6
+[08/04/26 15:34:49][__main__][INFO] - Saving pred: W015_029_2_1_sad_medium_9
+[08/04/26 15:37:35][__main__][INFO] - Saving param: W036_028_1_1_happy_medium_gt
+[08/04/26 15:37:35][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_0
+[08/04/26 15:37:35][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_3
+[08/04/26 15:37:36][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_6
+[08/04/26 15:37:36][__main__][INFO] - Saving pred: W036_028_1_1_happy_medium_9
+[08/04/26 15:38:15][__main__][INFO] - Saving param: W038_028_2_0_sad_low_gt
+[08/04/26 15:38:16][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_0
+[08/04/26 15:38:16][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_3
+[08/04/26 15:38:16][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_6
+[08/04/26 15:38:16][__main__][INFO] - Saving pred: W038_028_2_0_sad_low_9
+[08/04/26 15:38:56][__main__][INFO] - Saving param: W040_029_7_0_contempt_low_gt
+[08/04/26 15:38:56][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_0
+[08/04/26 15:38:56][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_3
+[08/04/26 15:38:56][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_6
+[08/04/26 15:38:57][__main__][INFO] - Saving pred: W040_029_7_0_contempt_low_9
+[08/04/26 15:39:07][__main__][INFO] - Total sequence number: 1424
+[08/04/26 15:39:07][__main__][INFO] - Total frame number: 72624
+[08/04/26 15:39:08][__main__][INFO] - MVE: 5.0289e-01
+[08/04/26 15:39:08][__main__][INFO] - LVE: 3.5639e-01
+[08/04/26 15:39:08][__main__][INFO] - MEE: 3.3078e-01
+[08/04/26 15:39:08][__main__][INFO] - CE: 3.2269e-01
+[08/04/26 15:39:08][__main__][INFO] - FDD: 1.6042e-01
+[08/04/26 15:39:08][__main__][INFO] - ABS FDD: 1.6796e-01
+[08/04/26 15:39:08][__main__][INFO] - Diversity: 2.5384e-01
+[08/04/26 15:39:08][__main__][INFO] - All the sampling are done. You can find them here:
+C:\Users\alexb\Develop\ProbTalk3D-ARKit\results\evaluation\vqvae_pred\stage_2\0.2_multi

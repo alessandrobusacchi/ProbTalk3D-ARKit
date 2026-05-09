@@ -25,9 +25,7 @@ class ComputeLosses(Module):
     def update(self, quant_loss=None, motion_pred=None, motion_ref=None):
         total: float = 0.0
 
-        # += self._update_loss("quant", quant_loss=quant_loss)
-        #total += self._update_loss("recons_blend", outputs=motion_pred, inputs=motion_ref)
-
+        # two losses to compute: quantization loss and reconstruction loss (reconstruction is computed in the blendedshape space)
         l_quant = self._update_loss("quant", quant_loss=quant_loss)
         l_recons = self._update_loss("recons_blend", outputs=motion_pred, inputs=motion_ref)
 

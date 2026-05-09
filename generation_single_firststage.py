@@ -144,7 +144,7 @@ def sample(newcfg: DictConfig) -> None:
     emotion = cfg.emotion
     intensity = cfg.intensity
 
-    sentence = "001"
+    sentence = "004"
     sequence_name = f"{subject}_{sentence}_{emotion}_{intensity}"
 
     keyid = '{}_x_{}_{}'.format(subject, emotion, intensity)

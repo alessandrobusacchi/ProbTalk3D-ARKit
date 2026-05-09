@@ -25,9 +25,7 @@ class ComputeLosses(Module):
     def update(self, motion_quant_pred=None, motion_quant_ref=None, motion_pred=None, motion_ref=None):
         total: float = 0.0
 
-        # total += self._update_loss("latent_manifold", outputs=motion_quant_pred, inputs=motion_quant_ref)
-        # total += self._update_loss("recons_blend", outputs=motion_quant_pred, inputs=motion_quant_ref)
-
+        # two losses to compute: latent manifold loss and reconstruction loss (reconstruction is computed in the blendedshape space)
         l_latent = self._update_loss("latent_manifold", outputs=motion_quant_pred, inputs=motion_quant_ref)
         l_recons = self._update_loss("recons_blend", outputs=motion_quant_pred, inputs=motion_quant_ref)
 
